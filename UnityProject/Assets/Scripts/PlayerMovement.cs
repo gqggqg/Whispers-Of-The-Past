@@ -8,12 +8,12 @@ public class PlayerMovement : MonoBehaviour
     private float _player_velocity;
     [SerializeField]
     private Vector3 _direction;
-    // Start is called before the first frame update
+
     void Start(){
+        _player_velocity = 0.3f;
         _direction = new Vector3(0.0f, 0.0f);
     }
 
-    // Update is called once per frame
     void FixedUpdate(){
         _direction = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) {
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) {
             _direction.x = _direction.x - _player_velocity;
         }
-        Vector3.Normalize(_direction);
+        _direction = Vector3.Normalize(_direction) * _player_velocity;
         this.transform.position = this.transform.position + _direction;
     }
 }
