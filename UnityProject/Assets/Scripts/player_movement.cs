@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
+
     private float _velocity;
     private Vector3 _direction;
     // Start is called before the first frame update
@@ -20,13 +21,13 @@ public class player_movement : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) {
             _direction.y = _direction.y + _velocity;
         }
-        if (Input.GetKey(KeyCode.S)){
+        if (Input.GetKey(KeyCode.S)) {
             _direction.y = _direction.y - _velocity;
         }
         if (Input.GetKey(KeyCode.D)) {
             _direction.x = _direction.x + _velocity;
         }
-        if (Input.GetKey(KeyCode.A)){
+        if (Input.GetKey(KeyCode.A)) {
             _direction.x = _direction.x - _velocity;
         }
         Vector3.Normalize(_direction);
