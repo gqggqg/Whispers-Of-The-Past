@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _direction;
 
     void Start(){
-        _player_velocity = 0.3f;
-        _direction = new Vector3(0.0f, 0.0f);
     }
 
     void FixedUpdate(){
