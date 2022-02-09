@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
 
     [SerializeField] 
     private Button _play;
