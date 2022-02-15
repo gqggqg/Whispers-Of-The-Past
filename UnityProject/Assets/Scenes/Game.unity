@@ -132,10 +132,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235212977}
-  - component: {fileID: 1235212976}
   - component: {fileID: 1235212978}
+  - component: {fileID: 1235212981}
   - component: {fileID: 1235212980}
   - component: {fileID: 1235212979}
+  - component: {fileID: 1235212976}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -202,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235212975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.207, y: 1.786, z: 0}
+  m_LocalPosition: {x: 2.932, y: 1.795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -268,6 +269,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1235212981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235212975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570dec07317abe449b593a84d4710b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653963184
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,9 +373,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875263128}
-  - component: {fileID: 1875263129}
   - component: {fileID: 1875263130}
   - component: {fileID: 1875263132}
+  - component: {fileID: 1875263129}
+  - component: {fileID: 1875263131}
   m_Layer: 0
   m_Name: NPC Button Test
   m_TagString: Untagged
@@ -451,6 +465,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1875263131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875263127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3047f0983975605499072419291b083b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &1875263132
 CircleCollider2D:
   m_ObjectHideFlags: 0
