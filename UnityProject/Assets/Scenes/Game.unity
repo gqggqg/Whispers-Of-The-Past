@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &378335879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 378335880}
-  m_Layer: 0
-  m_Name: NPC Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &378335880
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378335879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2361054, y: 1.7125487, z: -15.982454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1875263128}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235212975
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,8 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4113ec4d466960448b9e8715ac1999c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player_velocity: 0.1
-  _direction: {x: 0, y: 0, z: 0}
+  _playerVelocity: 0.1
 --- !u!61 &1235212979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -353,7 +321,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -394,7 +362,7 @@ GameObject:
   - component: {fileID: 1875263128}
   - component: {fileID: 1875263129}
   - component: {fileID: 1875263130}
-  - component: {fileID: 1875263131}
+  - component: {fileID: 1875263132}
   m_Layer: 0
   m_Name: NPC Button Test
   m_TagString: Untagged
@@ -410,11 +378,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875263127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 15.982454}
+  m_LocalPosition: {x: -1.7638946, y: 1.7125487, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 378335880}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1875263129
 SpriteRenderer:
@@ -483,7 +451,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &1875263131
+--- !u!58 &1875263132
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
