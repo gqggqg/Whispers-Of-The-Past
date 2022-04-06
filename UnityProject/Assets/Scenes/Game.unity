@@ -458,11 +458,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d227a96d6465b5f438c7285bfbf25bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 1680141535}
   maxHealth: 10
   currentHealth: 0
   baseDamage: 1
   currentDamage: 0
-  baseMovementSpeed: 40
+  baseMovementSpeed: 10
 --- !u!95 &1680141535
 Animator:
   serializedVersion: 3
@@ -473,7 +474,7 @@ Animator:
   m_GameObject: {fileID: 1680141532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8e631cf49e8227d4dadee207915c73dc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 830efb751b5d6ee43a5219ca6b4a4742, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -522,12 +523,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 57365866442116020, guid: d43180e9e3a648644a8a091dc18a97e7, type: 3}
+  m_Sprite: {fileID: -6914840513269721646, guid: f989c846ad75c04488ff60151871d6d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6, y: 1.7}
+  m_Size: {x: 1.4049586, y: 4.2148757}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
