@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace RPG {
     public abstract class Character : MonoBehaviour {
+
+        public Animator characterAnimator;
+
         // Stats
         [SerializeField]
         public int maxHealth = 10;
@@ -15,5 +18,6 @@ namespace RPG {
 
         [SerializeField]
         public int baseMovementSpeed = 40;
+
     }
 }
