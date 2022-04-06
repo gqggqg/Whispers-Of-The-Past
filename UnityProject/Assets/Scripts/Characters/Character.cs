@@ -19,6 +19,5 @@ namespace RPG {
         [SerializeField]
         public int baseMovementSpeed = 40;
 
-        private bool _facingRight;
     }
 }
