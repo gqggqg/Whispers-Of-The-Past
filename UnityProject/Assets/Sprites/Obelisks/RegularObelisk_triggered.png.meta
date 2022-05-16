@@ -1,0 +1,543 @@
+fileFormatVersion: 2
+guid: 49c696d7e80528446a61bfc25c37e9e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2666636115393866788
+    second: RegularObelisk_triggered_0
+  - first:
+      213: -3900277789363298073
+    second: RegularObelisk_triggered_1
+  - first:
+      213: -7082255310743476003
+    second: RegularObelisk_triggered_2
+  - first:
+      213: 7781948827847873639
+    second: RegularObelisk_triggered_3
+  - first:
+      213: 7533064696385341592
+    second: RegularObelisk_triggered_4
+  - first:
+      213: -1085558196875391797
+    second: RegularObelisk_triggered_5
+  - first:
+      213: -5333351413725823450
+    second: RegularObelisk_triggered_6
+  - first:
+      213: 1780255315895345954
+    second: RegularObelisk_triggered_7
+  - first:
+      213: -8580149009114056890
+    second: RegularObelisk_triggered_8
+  - first:
+      213: -5281409105323527800
+    second: RegularObelisk_triggered_9
+  - first:
+      213: -5519589697066008434
+    second: RegularObelisk_triggered_10
+  - first:
+      213: 1949481639052293322
+    second: RegularObelisk_triggered_11
+  - first:
+      213: 7262321472471216347
+    second: RegularObelisk_triggered_12
+  - first:
+      213: -137706027996123849
+    second: RegularObelisk_triggered_13
+  - first:
+      213: 8409240852566575280
+    second: RegularObelisk_triggered_14
+  - first:
+      213: 7876155949576326157
+    second: RegularObelisk_triggered_15
+  - first:
+      213: -4032829314349414562
+    second: RegularObelisk_triggered_16
+  - first:
+      213: 2899380405254029729
+    second: RegularObelisk_triggered_17
+  - first:
+      213: -1889539257323745647
+    second: RegularObelisk_triggered_18
+  - first:
+      213: -2258113321906456779
+    second: RegularObelisk_triggered_19
+  - first:
+      213: -1453595172992702521
+    second: RegularObelisk_triggered_20
+  - first:
+      213: -5347492623949372602
+    second: RegularObelisk_triggered_21
+  - first:
+      213: -47211589483030231
+    second: RegularObelisk_triggered_22
+  - first:
+      213: -3387723053614319924
+    second: RegularObelisk_triggered_23
+  - first:
+      213: 4724013176011489871
+    second: RegularObelisk_triggered_24
+  - first:
+      213: 582587022932582022
+    second: RegularObelisk_triggered_25
+  - first:
+      213: -1141326009516354578
+    second: RegularObelisk_triggered_26
+  - first:
+      213: -715819954358069297
+    second: RegularObelisk_triggered_27
+  - first:
+      213: 1986591678875204088
+    second: RegularObelisk_triggered_28
+  - first:
+      213: -8426281582462729535
+    second: RegularObelisk_triggered_29
+  - first:
+      213: -7937824767975783697
+    second: RegularObelisk_triggered_30
+  - first:
+      213: -4594260340903808724
+    second: RegularObelisk_triggered_31
+  - first:
+      213: 2870472224118743945
+    second: RegularObelisk_triggered_32
+  - first:
+      213: -5689440828259569030
+    second: RegularObelisk_triggered_33
+  - first:
+      213: -1762452660696674199
+    second: RegularObelisk_triggered_34
+  - first:
+      213: -3770461273844347250
+    second: RegularObelisk_triggered_35
+  - first:
+      213: -153082048712369534
+    second: RegularObelisk_triggered_36
+  - first:
+      213: -1488026774515439775
+    second: RegularObelisk_triggered_37
+  - first:
+      213: -192203409473147148
+    second: RegularObelisk_triggered_38
+  - first:
+      213: -7211729418568191145
+    second: RegularObelisk_triggered_39
+  - first:
+      213: -8415550036091694932
+    second: RegularObelisk_triggered_40
+  - first:
+      213: 6397817362098576187
+    second: RegularObelisk_triggered_41
+  - first:
+      213: -5934427145509038784
+    second: RegularObelisk_triggered_42
+  - first:
+      213: -2697104111766196354
+    second: RegularObelisk_triggered_43
+  - first:
+      213: -4583931893897006205
+    second: RegularObelisk_triggered_44
+  - first:
+      213: 2306606254371854590
+    second: RegularObelisk_triggered_45
+  - first:
+      213: -814902537001522745
+    second: RegularObelisk_triggered_46
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 13
+        width: 102
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd398bcd4943efad0800000000000000
+      internalID: -2666636115393866788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_1
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 13
+        width: 100
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0a7afd30e6fd9c0800000000000000
+      internalID: -3900277789363298073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_2
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 13
+        width: 102
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8e28a7156c6bd90800000000000000
+      internalID: -7082255310743476003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_3
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 13
+        width: 102
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764d3287a390ffb60800000000000000
+      internalID: 7781948827847873639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_4
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 13
+        width: 102
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8988512fd62da8860800000000000000
+      internalID: 7533064696385341592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_5
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 13
+        width: 102
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc8a3c42925fe0f0800000000000000
+      internalID: -1085558196875391797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_6
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 13
+        width: 101
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e7b8285212cf5b0800000000000000
+      internalID: -5333351413725823450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_7
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 10
+        width: 102
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223617117ccb4b810800000000000000
+      internalID: 1780255315895345954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_8
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 10
+        width: 126
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64736df8fef2de880800000000000000
+      internalID: -8580149009114056890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_9
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 10
+        width: 119
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8817dab966aa4b6b0800000000000000
+      internalID: -5281409105323527800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_10
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 9
+        width: 118
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8089702a6a7663b0800000000000000
+      internalID: -5519589697066008434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_11
+      rect:
+        serializedVersion: 2
+        x: 2123
+        y: 10
+        width: 119
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4bbdfc833fd0b10800000000000000
+      internalID: 1949481639052293322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_12
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 10
+        width: 119
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0b65bd6e2f8c460800000000000000
+      internalID: 7262321472471216347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RegularObelisk_triggered_13
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 13
+        width: 94
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d6cddd815c61ef0800000000000000
+      internalID: -137706027996123849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
