@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1139b3508f161884cad10174ed447700
+guid: 3bd5b9bcce6702645887dc8d574f4712
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5060787868481390268
-    second: lady_idle_0
+      213: -312738567421119420
+    second: Farmer_0
   - first:
-      213: 3911510991000183419
-    second: lady_idle_1
+      213: 6408712944004842911
+    second: Farmer_1
   - first:
-      213: -9006579178663474844
-    second: lady_idle_2
+      213: 2090741960068699355
+    second: Farmer_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -77,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,19 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lady_idle_0
+      name: Farmer_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 4
         y: 6
-        width: 18
-        height: 51
+        width: 37
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb68070d0c78b3640800000000000000
-      internalID: 5060787868481390268
+      spriteID: 444bc4d0eede8abf0800000000000000
+      internalID: -312738567421119420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lady_idle_1
+      name: Farmer_1
       rect:
         serializedVersion: 2
-        x: 62
+        x: 71
         y: 6
-        width: 18
-        height: 51
+        width: 37
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b722a91b58a784630800000000000000
-      internalID: 3911510991000183419
+      spriteID: f954bdeb77250f850800000000000000
+      internalID: 6408712944004842911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lady_idle_2
+      name: Farmer_2
       rect:
         serializedVersion: 2
-        x: 115
+        x: 119
         y: 6
-        width: 18
-        height: 51
+        width: 37
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4698556b4f3320380800000000000000
-      internalID: -9006579178663474844
+      spriteID: bd416e64cbec30d10800000000000000
+      internalID: 2090741960068699355
       vertices: []
       indices: 
       edges: []

@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 1139b3508f161884cad10174ed447700
+guid: 04b10c609ad1d454f89ce84a7a30415b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5060787868481390268
-    second: lady_idle_0
+      213: -7525423102413577554
+    second: Grandpa_idle_0
   - first:
-      213: 3911510991000183419
-    second: lady_idle_1
-  - first:
-      213: -9006579178663474844
-    second: lady_idle_2
+      213: -1674779486731530429
+    second: Grandpa_idle_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -77,7 +74,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,19 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lady_idle_0
+      name: Grandpa_idle_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 6
-        width: 18
-        height: 51
+        x: 3
+        y: 5
+        width: 14
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb68070d0c78b3640800000000000000
-      internalID: 5060787868481390268
+      spriteID: ea2ee1c4f83509790800000000000000
+      internalID: -7525423102413577554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lady_idle_1
+      name: Grandpa_idle_1
       rect:
         serializedVersion: 2
-        x: 62
-        y: 6
-        width: 18
-        height: 51
+        x: 109
+        y: 5
+        width: 14
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,29 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b722a91b58a784630800000000000000
-      internalID: 3911510991000183419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lady_idle_2
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 6
-        width: 18
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4698556b4f3320380800000000000000
-      internalID: -9006579178663474844
+      spriteID: 34f81402eecf1c8e0800000000000000
+      internalID: -1674779486731530429
       vertices: []
       indices: 
       edges: []

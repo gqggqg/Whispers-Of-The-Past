@@ -9,15 +9,18 @@ namespace RPG {
 
         // Stats
         [SerializeField]
-        public int maxHealth = 10;
+
+        public int maxHealth;
         public int currentHealth;
         
         [SerializeField]
-        public int baseDamage = 1;
+        public int baseDamage;
         public int currentDamage;
 
         [SerializeField]
-        public int baseMovementSpeed = 40;
+        public int baseMovementSpeed;
+
+        private bool _facingRight;
 
     }
 }
