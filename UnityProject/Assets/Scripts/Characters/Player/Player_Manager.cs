@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
-
     public class Player_Manager : Character {
 
         public KeyCode interactionKey = KeyCode.E;
@@ -13,6 +12,7 @@ namespace RPG {
         /// 
         public bool canAttack = false;
     
+
         // Update is called once per frame
         void Update() {
 

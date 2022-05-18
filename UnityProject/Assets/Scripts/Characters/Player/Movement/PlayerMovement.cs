@@ -36,14 +36,18 @@ namespace RPG {
                 Flip();
             }
             
+
             _player_animator.SetFloat("Speed", _player_speed);
+
         }
 
         void FixedUpdate() {
             _rbody.MovePosition(_rbody.position + (_direction * _player_speed * Time.deltaTime));        
         }
 
+
         public void Flip() {
+
             _facingRight = !_facingRight;
 
             transform.Rotate(0f, 180f, 0f);
