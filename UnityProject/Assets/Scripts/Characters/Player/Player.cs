@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG {
 
-    public class Player_Manager : Character {
+    public class Player : Character {
         [SerializeField]
         private KeyCode _interactionKey;
 

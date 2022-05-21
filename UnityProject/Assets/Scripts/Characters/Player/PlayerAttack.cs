@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
-    public class Weapon : MonoBehaviour {
+    public class PlayerAttack : MonoBehaviour {
         public Transform firePoint;
         public GameObject heavyBulletPrefab;
 
@@ -11,7 +11,7 @@ namespace RPG {
         private AnimationController _animation_controller;
 
         [SerializeField]
-        private Player_Manager _player_manager;
+        private Player _player_manager;
 
         private void Start() {
 
