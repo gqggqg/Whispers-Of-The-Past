@@ -1,54 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
+
+    [RequireComponent(typeof(Animator))]
     public class AnimationController : MonoBehaviour {
-        // Start is called before the first frame update
+
         [SerializeField]
         private Animator _animator;
 
         [SerializeField]
-        private PlayerAttack _playerAttack;
+        private Transform _transform;
 
         [SerializeField]
         private Movement _movement;
 
+        [SerializeField]
+        private Weapon _weapon;
 
-        private Transform position;
+
         private bool _facingRight;
 
-        void Start() {
-            _movement.OnMove += OnMove;
-            _playerAttack.OnAttack += OnAttack;
+
+        private void Start() {
+            if (_movement != null) {
+                _movement.OnMove += OnMove;
+            }
+
+            if (_weapon != null) {
+                _weapon.OnShoot += OnShoot;
+            }
         }
 
-        private void OnAttack() {
-            Vector3 dir = Input.mousePosition;
+        private void OnShoot() {
+            var dir = Input.mousePosition;
             dir = Camera.main.ScreenToWorldPoint(dir);
             dir = dir - transform.position;
             FlipToDirection(dir);
         }
-        private void OnMove(Vector2 direction, float speed) {
-            _animator.SetFloat("Speed", speed);
-            FlipToDirection(direction);
+
+        private void OnMove() {
+            _animator.SetFloat("Speed", _movement.Speed);
+            FlipToDirection(_movement.Direction);
         }
    
-        public void FlipToDirection(Vector2 direction) {
-            if (direction.x > 0 && _facingRight)
+        private void FlipToDirection(Vector2 direction) {
+            if (direction.x < 0 && !_facingRight || 
+                direction.x > 0 && _facingRight ||     
+                direction.x == 0) {
                 return;
-            if (direction.x < 0 && !_facingRight)
-                return;
-            if (direction.x == 0)
-                return;
+            }
 
-            transform.Rotate(0f, 180f, 0f);
             _facingRight = !_facingRight;
-        }
-
-        public void Flip() {
-            transform.Rotate(0f, 180f, 0f);
-            _facingRight = !_facingRight;
+            _transform.Rotate(0f, 180f, 0f);
         }
     }
 }
