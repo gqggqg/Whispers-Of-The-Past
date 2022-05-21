@@ -1,30 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
+
     public class Enemy : Character {
 
-        public HealthBar healthBar;
+        [SerializeField]
+        public HealthBar _healthBar;
 
         public void TakeDamage(int damage) {
-            currentHealth -= damage;
-            healthBar.SetHealth(maxHealth - currentHealth);
+            _currentHealth -= damage;
+            _healthBar.SetHealth(MaxHealth - _currentHealth);
 
-            if (currentHealth <= 0) {
+            if (_currentHealth <= 0) {
                 Destroy(gameObject);
-            }   
-        }
-        // Start is called before the first frame update
-        void Start() {
-            currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
+            }
         }
 
-        // Update is called once per frame
-        void Update() {
-
-        }
-        
+        protected override void Start() {
+            base.Start();
+            _healthBar.SetMaxHealth(MaxHealth);
+        }     
     }
 }

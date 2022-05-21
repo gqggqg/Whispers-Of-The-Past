@@ -1,40 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
 
     public class Player : Character {
+
         [SerializeField]
-        private KeyCode _interactionKey;
+        private HealthBar _healthBar;
+
+        [SerializeField]
+        private Weapon _weapon;
 
         [SerializeField]
         private KeyCode _attackKey;
 
         [SerializeField]
+        private KeyCode _interactionKey;
+
+        [SerializeField]
         private KeyCode _switchWeaponKey;
 
-        public KeyCode InteractionKey => _interactionKey;
-        public KeyCode AttackKey => _attackKey;
-        public KeyCode SwitchWeaponKey => _switchWeaponKey;
-        public bool CanAttack => canAttack;
 
-        /// 
-        private bool canAttack = true;
-        //
-        public HealthBar healthBar;
-        void Start() {
-            currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
-        }
-        // Update is called once per frame
-        void Update() {
-
+        private void Update() {
+            if (Input.GetKeyDown(_attackKey)) {
+                _weapon.Shoot();
+            }
         }
 
-        void Takedamage(int damage) {
-            currentHealth -= damage;
-            healthBar.SetHealth(maxHealth - currentHealth); 
+        public void TakeDamage(int damage) {
+            _currentHealth -= damage;
+            _healthBar.SetHealth(MaxHealth - _currentHealth);
         }
     }
 }

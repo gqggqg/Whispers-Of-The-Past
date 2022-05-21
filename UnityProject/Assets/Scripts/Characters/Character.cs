@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
+
     public abstract class Character : MonoBehaviour {
 
-        
-
-        // Stats
         [SerializeField]
-        public int maxHealth;
-        public int currentHealth;
-        
-        [SerializeField]
-        public int baseDamage;
-        public int currentDamage;
+        private int _maxHealth;
+        public int MaxHealth => _maxHealth;
 
         [SerializeField]
-        public int baseMovementSpeed;
+        private int _baseDamage;
+        public int BaseDamage => _baseDamage;
 
+        protected int _currentHealth;
+        protected int _currentDamage;
 
+        protected virtual void Start() {
+            _currentHealth = _maxHealth;
+            _currentDamage = _baseDamage;
+        }
     }
 }
