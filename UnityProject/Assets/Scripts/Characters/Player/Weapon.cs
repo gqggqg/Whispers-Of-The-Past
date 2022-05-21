@@ -33,7 +33,7 @@ namespace RPG {
 
         void Shoot() {
             Vector3 dir = Input.mousePosition;
-            dir.z = 0.0f;
+
             dir = Camera.main.ScreenToWorldPoint(dir);
             dir = dir - transform.position;
             if (dir.x < 0 && pMove._facingRight) {

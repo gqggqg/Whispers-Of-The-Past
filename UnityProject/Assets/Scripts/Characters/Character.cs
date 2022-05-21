@@ -6,6 +6,7 @@ namespace RPG {
     public abstract class Character : MonoBehaviour {
 
         public Animator characterAnimator;
+        public Rigidbody2D characterRb;
 
         // Stats
         [SerializeField]

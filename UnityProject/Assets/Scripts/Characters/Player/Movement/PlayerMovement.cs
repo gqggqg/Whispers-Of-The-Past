@@ -6,8 +6,7 @@ namespace RPG {
     public class PlayerMovement : MonoBehaviour {
 
         private Player_Manager _player_manager;
-        private Rigidbody2D _rbody;
-        private Animator _player_animator;
+
 
         private float _player_speed;
         private Vector2 _direction;
@@ -16,8 +15,6 @@ namespace RPG {
 
         void Start() {
             _player_manager = GetComponent<Player_Manager>();
-            _rbody = GetComponent<Rigidbody2D>();
-            _player_animator = GetComponent<Animator>();
             _direction = Vector2.zero;
             _facingRight = false;
         }
@@ -36,11 +33,11 @@ namespace RPG {
                 Flip();
             }
             
-            _player_animator.SetFloat("Speed", _player_speed);
+            _player_manager.characterAnimator.SetFloat("Speed", _player_speed);
         }
 
         void FixedUpdate() {
-            _rbody.MovePosition(_rbody.position + (_direction * _player_speed * Time.deltaTime));        
+            _player_manager.characterRb.MovePosition(_player_manager.characterRb.position + (_direction * _player_speed * Time.deltaTime));        
         }
 
         public void Flip() {

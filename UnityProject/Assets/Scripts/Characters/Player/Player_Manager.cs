@@ -12,10 +12,20 @@ namespace RPG {
         /// ///////////////
         /// 
         public bool canAttack = false;
-    
+        //
+        public HealthBar healthBar;
+        void Start() {
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
         // Update is called once per frame
         void Update() {
 
+        }
+
+        void Takedamage(int damage) {
+            currentHealth -= damage;
+            healthBar.SetHealth(maxHealth - currentHealth); 
         }
     }
 }
