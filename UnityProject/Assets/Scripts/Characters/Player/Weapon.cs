@@ -7,11 +7,11 @@ namespace RPG {
         public Transform firePoint;
         public GameObject heavyBulletPrefab;
 
-        private PlayerMovement pMove;
+        private Movement pMove;
         private Player_Manager _player_manager;
 
         private void Start() {
-            pMove = GetComponent<PlayerMovement>();
+            pMove = GetComponent<Movement>();
             _player_manager = GetComponent<Player_Manager>();
             _player_manager.canAttack = true;
 

@@ -345,8 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d227a96d6465b5f438c7285bfbf25bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAnimator: {fileID: 691974944}
-  characterRb: {fileID: 691974949}
   maxHealth: 10
   currentHealth: 0
   baseDamage: 1
@@ -369,6 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8475904ece501324c954dc958f2a7e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 691974944}
+  rb: {fileID: 691974949}
+  character: {fileID: 691974947}
   _facingRight: 0
 --- !u!50 &691974949
 Rigidbody2D:
@@ -576,8 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f1a01fffd09c34996fde6ed20a8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAnimator: {fileID: 0}
-  characterRb: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
   baseDamage: 0
