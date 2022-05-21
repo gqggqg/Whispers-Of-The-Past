@@ -5,13 +5,22 @@ using UnityEngine;
 namespace RPG {
 
     public class Player_Manager : Character {
+        [SerializeField]
+        private KeyCode _interactionKey;
 
-        public KeyCode interactionKey = KeyCode.E;
-        public KeyCode attackKey = KeyCode.Mouse0;
-        public KeyCode switchWeaponKey = KeyCode.LeftShift;
-        /// ///////////////
+        [SerializeField]
+        private KeyCode _attackKey;
+
+        [SerializeField]
+        private KeyCode _switchWeaponKey;
+
+        public KeyCode InteractionKey => _interactionKey;
+        public KeyCode AttackKey => _attackKey;
+        public KeyCode SwitchWeaponKey => _switchWeaponKey;
+        public bool CanAttack => canAttack;
+
         /// 
-        public bool canAttack = false;
+        private bool canAttack = true;
         //
         public HealthBar healthBar;
         void Start() {

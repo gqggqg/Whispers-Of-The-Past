@@ -7,25 +7,28 @@ namespace RPG {
         public Transform firePoint;
         public GameObject heavyBulletPrefab;
 
-        private Movement pMove;
+        [SerializeField]
+        private AnimationController _animation_controller;
+
+        [SerializeField]
         private Player_Manager _player_manager;
 
         private void Start() {
-            pMove = GetComponent<Movement>();
-            _player_manager = GetComponent<Player_Manager>();
-            _player_manager.canAttack = true;
+
 
         }
 
         void Update() {
 
-            if (!_player_manager.canAttack) {
+            
+            if (!_player_manager.CanAttack) {
+                Debug.Log("NotPassed");
                 return;
             }
 
 
-            if (Input.GetKeyDown(_player_manager.attackKey)) {
-
+            if (Input.GetKeyDown(_player_manager.AttackKey)) {
+                Debug.Log("ShootingStar");
                 Shoot();
             }
 
@@ -33,15 +36,10 @@ namespace RPG {
 
         void Shoot() {
             Vector3 dir = Input.mousePosition;
-
             dir = Camera.main.ScreenToWorldPoint(dir);
             dir = dir - transform.position;
-            if (dir.x < 0 && pMove.FacingRight) {
-                pMove.Flip();
-            }
-            else if (dir.x > 0 && !pMove.FacingRight) {
-                pMove.Flip();
-            }
+
+            _animation_controller.FlipToDirection(dir);
             //////////
             Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
 

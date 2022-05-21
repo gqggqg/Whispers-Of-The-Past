@@ -19,5 +19,6 @@ namespace RPG {
         [SerializeField]
         public int baseMovementSpeed;
 
+
     }
 }

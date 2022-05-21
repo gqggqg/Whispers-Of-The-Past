@@ -3,22 +3,21 @@ using UnityEngine;
 namespace RPG {
 
     public class Movement : MonoBehaviour {
-
-        [SerializeField]
-        private Animator _animator;
-
         [SerializeField]
         private Rigidbody2D _rb;
 
         [SerializeField]
         private Character _character;
 
+        [SerializeField]
+        private AnimationController _animationController;
 
         private Vector2 _direction;
         private float _playerSpeed;
         private bool _facingRight;
+        private bool _isDirectionChange = false;
         public bool FacingRight => _facingRight;
-
+        public float PlayerSpeed => _playerSpeed;
 
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
@@ -31,12 +30,14 @@ namespace RPG {
             _direction.Set(horizontal, vertical);
             _direction.Normalize();
 
-            if ((_direction.x < 0 && _facingRight) || (_direction.x > 0 && !_facingRight)) {
-                Flip();
-            }
+            _isDirectionChange = _animationController.FlipToDirection(_direction);
+
+            if (_isDirectionChange)
+                _facingRight = !_facingRight;
 
             _playerSpeed = _direction.magnitude * _character.baseMovementSpeed;
-            _animator.SetFloat("Speed", _playerSpeed);
+
+            _animationController.UpdateAnimationState();
         }
 
         private void FixedUpdate() {
@@ -44,9 +45,5 @@ namespace RPG {
             _rb.MovePosition(position);        
         }
 
-        public void Flip() {
-            _facingRight = !_facingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }
     }
 }
