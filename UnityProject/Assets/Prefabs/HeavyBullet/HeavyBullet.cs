@@ -16,7 +16,6 @@ namespace RPG {
             dir.z = 0.0f;
             dir.Normalize();
             rb.velocity = dir * speed;
-
         }
 
         private void OnTriggerEnter2D(Collider2D hitInfo) {

@@ -15,20 +15,14 @@ namespace RPG {
 
         private void Start() {
 
-
         }
 
-        void Update() {
-
-            
+        void Update() {     
             if (!_player_manager.CanAttack) {
-                Debug.Log("NotPassed");
                 return;
             }
 
-
             if (Input.GetKeyDown(_player_manager.AttackKey)) {
-                Debug.Log("ShootingStar");
                 Shoot();
             }
 
@@ -42,10 +36,7 @@ namespace RPG {
             _animation_controller.FlipToDirection(dir);
             //////////
             Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
-
             //////////
-            
-            
 
         }
     }

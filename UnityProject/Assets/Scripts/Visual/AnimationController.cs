@@ -8,30 +8,28 @@ namespace RPG {
         [SerializeField]
         private Animator _animator;
 
-        [SerializeField]
-        private Movement _pMove;
-
         private Transform position;
+        private bool _facingRight;
 
-        public void UpdateAnimationState() {
 
-            _animator.SetFloat("Speed", _pMove.PlayerSpeed);
+        public void UpdateFloatParameter(string parameterName, float parameterValue) {
+            _animator.SetFloat(parameterName, parameterValue);
         }
-        public bool FlipToDirection(Vector2 direction) {
-            if (direction.x > 0 && _pMove.FacingRight)
-                return false;
-            if (direction.x < 0 && !_pMove.FacingRight)
-                return false;
+        public void FlipToDirection(Vector2 direction) {
+            if (direction.x > 0 && _facingRight)
+                return;
+            if (direction.x < 0 && !_facingRight)
+                return;
             if (direction.x == 0)
-                return false;
+                return;
 
             transform.Rotate(0f, 180f, 0f);
-            return true;
+            _facingRight = !_facingRight;
         }
 
-        public bool Flip() {
+        public void Flip() {
             transform.Rotate(0f, 180f, 0f);
-            return true;
+            _facingRight = !_facingRight;
         }
     }
 }

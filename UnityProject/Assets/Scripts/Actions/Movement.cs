@@ -14,9 +14,7 @@ namespace RPG {
 
         private Vector2 _direction;
         private float _playerSpeed;
-        private bool _facingRight;
-        private bool _isDirectionChange = false;
-        public bool FacingRight => _facingRight;
+
         public float PlayerSpeed => _playerSpeed;
 
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
@@ -30,14 +28,11 @@ namespace RPG {
             _direction.Set(horizontal, vertical);
             _direction.Normalize();
 
-            _isDirectionChange = _animationController.FlipToDirection(_direction);
-
-            if (_isDirectionChange)
-                _facingRight = !_facingRight;
+            _animationController.FlipToDirection(_direction);
 
             _playerSpeed = _direction.magnitude * _character.baseMovementSpeed;
 
-            _animationController.UpdateAnimationState();
+            _animationController.UpdateFloatParameter("Speed", _playerSpeed);
         }
 
         private void FixedUpdate() {
