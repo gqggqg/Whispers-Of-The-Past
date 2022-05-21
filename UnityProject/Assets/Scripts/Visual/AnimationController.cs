@@ -38,8 +38,8 @@ namespace RPG {
         }
 
         private void OnMove() {
-            _animator.SetFloat("Speed", _movement.Speed);
             FlipToDirection(_movement.Direction);
+            _animator.SetFloat("Speed", _movement.Speed);
         }
    
         private void FlipToDirection(Vector2 direction) {

@@ -13,8 +13,8 @@ namespace RPG {
 
 
         public void Shoot() {
-            Instantiate(_heavyBulletPrefab, transform.position, transform.rotation);
             OnShoot?.Invoke();
+            Instantiate(_heavyBulletPrefab, transform.position, transform.rotation);
         }
     }
 }
