@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 namespace RPG {
 
     public class Movement : MonoBehaviour {
@@ -9,12 +9,11 @@ namespace RPG {
         [SerializeField]
         private Character _character;
 
-        [SerializeField]
-        private AnimationController _animationController;
 
         private Vector2 _direction;
         private float _playerSpeed;
 
+        public event Action<Vector2, float> OnMove;
         public float PlayerSpeed => _playerSpeed;
 
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
@@ -28,11 +27,11 @@ namespace RPG {
             _direction.Set(horizontal, vertical);
             _direction.Normalize();
 
-            _animationController.FlipToDirection(_direction);
+            //_animationController.FlipToDirection(_direction);
 
             _playerSpeed = _direction.magnitude * _character.baseMovementSpeed;
 
-            _animationController.UpdateFloatParameter("Speed", _playerSpeed);
+            OnMove?.Invoke(_direction, _playerSpeed);
         }
 
         private void FixedUpdate() {

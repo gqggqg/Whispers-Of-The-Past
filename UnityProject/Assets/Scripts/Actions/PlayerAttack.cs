@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 namespace RPG {
     public class PlayerAttack : MonoBehaviour {
         public Transform firePoint;
         public GameObject heavyBulletPrefab;
 
-        [SerializeField]
-        private AnimationController _animation_controller;
+        public event Action OnAttack;
 
         [SerializeField]
         private Player _player_manager;
+
 
         private void Start() {
 
@@ -29,11 +29,8 @@ namespace RPG {
         }
 
         void Shoot() {
-            Vector3 dir = Input.mousePosition;
-            dir = Camera.main.ScreenToWorldPoint(dir);
-            dir = dir - transform.position;
 
-            _animation_controller.FlipToDirection(dir);
+            OnAttack?.Invoke();
             //////////
             Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
             //////////
