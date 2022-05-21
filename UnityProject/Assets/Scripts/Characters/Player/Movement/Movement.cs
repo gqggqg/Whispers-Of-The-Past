@@ -29,10 +29,6 @@ namespace RPG {
             var vertical = Input.GetAxisRaw(VERTICAL_AXIS_NAME);
 
             _direction.Set(horizontal, vertical);
-
-            Debug.Log(horizontal + "  " + vertical);
-            Debug.Log(_direction);
-
             _direction.Normalize();
 
             if ((_direction.x < 0 && _facingRight) || (_direction.x > 0 && !_facingRight)) {
