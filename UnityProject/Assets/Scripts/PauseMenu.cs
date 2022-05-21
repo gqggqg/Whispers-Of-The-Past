@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; //UI
-using UnityEngine.SceneManagement; //Scenes
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PauseMenu : MonoBehaviour {
@@ -19,11 +17,9 @@ public class PauseMenu : MonoBehaviour {
     private Button _exit; //Button EXIT (to the main menu)
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         _resume.onClick.AddListener(Resume);
-
         _settings.onClick.AddListener(Settings);
-
         _exit.onClick.AddListener(GoToMain);
     }
 
