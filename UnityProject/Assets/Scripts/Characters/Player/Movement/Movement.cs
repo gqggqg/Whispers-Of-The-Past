@@ -1,50 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
+
     public class Movement : MonoBehaviour {
-        [SerializeField]
-        public Animator animator;
-        [SerializeField]
-        public Rigidbody2D rb;
-        [SerializeField]
-        public Character character;
 
-        private float _player_speed;
+        [SerializeField]
+        private Animator _animator;
+
+        [SerializeField]
+        private Rigidbody2D _rb;
+
+        [SerializeField]
+        private Character _character;
+
+
         private Vector2 _direction;
-        [SerializeField]
-        public bool _facingRight;
-
-        void Start() {
-            _direction = Vector2.zero;
-            _facingRight = false;
-        }
+        private float _playerSpeed;
+        private bool _facingRight;
+        public bool FacingRight => _facingRight;
 
 
-        void Update() {
-            _direction.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        private const string HORIZONTAL_AXIS_NAME = "Horizontal";
+        private const string VERTICAL_AXIS_NAME = "Vertical";
+
+
+        private void Update() {
+            var horizontal = Input.GetAxisRaw(HORIZONTAL_AXIS_NAME);
+            var vertical = Input.GetAxisRaw(VERTICAL_AXIS_NAME);
+
+            _direction.Set(horizontal, vertical);
+
+            Debug.Log(horizontal + "  " + vertical);
+            Debug.Log(_direction);
+
             _direction.Normalize();
 
-            _player_speed = _direction.magnitude * character.baseMovementSpeed;
-
-            if (_direction.x < 0 && _facingRight) {
-                Flip();
-            } 
-            else if (_direction.x > 0 && !_facingRight) {
+            if ((_direction.x < 0 && _facingRight) || (_direction.x > 0 && !_facingRight)) {
                 Flip();
             }
-            
-            animator.SetFloat("Speed", _player_speed);
+
+            _playerSpeed = _direction.magnitude * _character.baseMovementSpeed;
+            _animator.SetFloat("Speed", _playerSpeed);
         }
 
-        void FixedUpdate() {
-            rb.MovePosition(rb.position + (_direction * _player_speed * Time.deltaTime));        
+        private void FixedUpdate() {
+            var position = _rb.position + (_direction * _playerSpeed * Time.deltaTime);
+            _rb.MovePosition(position);        
         }
 
         public void Flip() {
             _facingRight = !_facingRight;
-
             transform.Rotate(0f, 180f, 0f);
         }
     }

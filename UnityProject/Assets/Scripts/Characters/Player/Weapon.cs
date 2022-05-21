@@ -36,10 +36,10 @@ namespace RPG {
 
             dir = Camera.main.ScreenToWorldPoint(dir);
             dir = dir - transform.position;
-            if (dir.x < 0 && pMove._facingRight) {
+            if (dir.x < 0 && pMove.FacingRight) {
                 pMove.Flip();
             }
-            else if (dir.x > 0 && !pMove._facingRight) {
+            else if (dir.x > 0 && !pMove.FacingRight) {
                 pMove.Flip();
             }
             //////////
