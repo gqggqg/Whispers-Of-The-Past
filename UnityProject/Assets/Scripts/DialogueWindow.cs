@@ -31,12 +31,14 @@ public class DialogueWindow : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (_text.text == _lines[_index]) {
-                IsNextLine();
-            } else {
-                StopAllCoroutines();
-                _text.text = _lines[_index];
+        if (Time.timeScale == 1f) {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                if (_text.text == _lines[_index]) {
+                    IsNextLine();
+                } else {
+                    StopAllCoroutines();
+                    _text.text = _lines[_index];
+                }
             }
         }
     }
