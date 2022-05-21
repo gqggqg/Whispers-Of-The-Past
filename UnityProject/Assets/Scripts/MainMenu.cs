@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void SettingsPressed() {
+        //TODO: Implement settings menu correctly
         //   menu.SetActive(false);
         //   settingsMenu.SetActive(true);
     }
