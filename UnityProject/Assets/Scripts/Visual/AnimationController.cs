@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace RPG {
 
-    [RequireComponent(typeof(Animator))]
     public class AnimationController : MonoBehaviour {
 
         [SerializeField]

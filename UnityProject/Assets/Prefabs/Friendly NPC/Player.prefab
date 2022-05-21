@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 222272301489225635}
   - component: {fileID: 222272301489225636}
   - component: {fileID: 4062754433844631525}
-  - component: {fileID: 222272301489225632}
   - component: {fileID: 222272301489225637}
   - component: {fileID: 222272301489225639}
   m_Layer: 0
@@ -84,29 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d93ae5da06bba4cbc5ba1863558e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 222272301489225632}
+  _animator: {fileID: 2739605280528228648}
   _transform: {fileID: 3001005626577844091}
   _movement: {fileID: 222272301489225636}
   _weapon: {fileID: 3865962459847191799}
---- !u!95 &222272301489225632
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222272301489225631}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0e29a47cb01ff4d48ac8b9c5a104bbc5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &222272301489225637
 Rigidbody2D:
   serializedVersion: 4
@@ -198,8 +178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3001005626577844091}
   - component: {fileID: 5786391178263400921}
+  - component: {fileID: 2739605280528228648}
   m_Layer: 0
-  m_Name: PlayerSprite
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,6 +251,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2739605280528228648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800670059664691699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e29a47cb01ff4d48ac8b9c5a104bbc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1625473574151266960
 PrefabInstance:
   m_ObjectHideFlags: 0
