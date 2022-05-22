@@ -21,6 +21,7 @@ namespace RPG {
 
 <<<<<<< Updated upstream
 
+
         private void Update() {
             if (Input.GetKeyDown(_attackKey)) {
                 _weapon.Shoot();
@@ -39,6 +40,20 @@ namespace RPG {
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
 >>>>>>> Stashed changes
+        }
+
+        public KeyCode InteractionKey => _interactionKey;
+        public KeyCode AttackKey => _attackKey;
+        public KeyCode SwitchWeaponKey => _switchWeaponKey;
+        public bool CanAttack => canAttack;
+
+        /// 
+        private bool canAttack = true;
+        //
+        public HealthBar healthBar;
+        protected override void Start() {
+            base.Start();
+            _healthBar.SetMaxHealth(MaxHealth);
         }
 
         public void TakeDamage(int damage) {

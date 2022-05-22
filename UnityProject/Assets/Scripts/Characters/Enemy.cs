@@ -9,13 +9,16 @@ namespace RPG {
         [SerializeField]
         public HealthBar _healthBar;
 
+
+        public event Action OnEnemyDeath;
+
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
-            _healthBar.SetHealth(MaxHealth - _currentHealth);
 
+            _healthBar.SetHealth(MaxHealth - _currentHealth);
             if (_currentHealth <= 0) {
-                Destroy(gameObject);
-            }
+                OnEnemyDeath?.Invoke();
+            }   
 =======
         public HealthBar healthBar;
         public event Action OnEnemyDeath;
@@ -32,13 +35,8 @@ namespace RPG {
         void Start() {
             currentHealth = maxHealth;
 
-            healthBar.SetMaxHealth(maxHealth);
-            
-        }
-
         void Death() {
             Destroy(gameObject);
->>>>>>> Stashed changes
         }
 
         protected override void Start() {
