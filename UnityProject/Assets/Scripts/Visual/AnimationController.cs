@@ -14,11 +14,16 @@ namespace RPG {
         private Movement _movement;
 
         [SerializeField]
+<<<<<<< Updated upstream
         private Weapon _weapon;
+=======
+        private Enemy _enemy;
+>>>>>>> Stashed changes
 
 
         private bool _facingRight;
 
+<<<<<<< Updated upstream
 
         private void Start() {
             if (_movement != null) {
@@ -28,6 +33,16 @@ namespace RPG {
             if (_weapon != null) {
                 _weapon.OnShoot += OnShoot;
             }
+=======
+        void Start() {
+            _movement.OnMove += OnMove;
+            _playerAttack.OnAttack += OnAttack;
+            _enemy.OnEnemyDeath += OnEnemyDeath;
+        }
+
+        private void OnEnemyDeath() {
+
+>>>>>>> Stashed changes
         }
 
         private void OnShoot() {
