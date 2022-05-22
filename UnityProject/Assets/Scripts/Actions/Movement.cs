@@ -37,7 +37,13 @@ namespace RPG {
             _direction.Normalize();
             _speed = _direction.magnitude * _baseSpeed;
 
+<<<<<<< Updated upstream
             OnMove?.Invoke();
+=======
+            _playerSpeed = _direction.magnitude * _character.baseMovementSpeed;
+
+            OnMove?.Invoke(_direction, _playerSpeed);
+>>>>>>> Stashed changes
         }
 
         private void FixedUpdate() {
