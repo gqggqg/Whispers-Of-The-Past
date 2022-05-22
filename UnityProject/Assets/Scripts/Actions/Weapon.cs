@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RPG {
+namespace Game {
 
     public class Weapon : MonoBehaviour {
 
