@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG {
@@ -19,11 +21,7 @@ namespace RPG {
         [SerializeField]
         private Enemy _enemy;
 
-
-
         private bool _facingRight;
-
-
 
         private void Start() {
             if (_movement != null) {
@@ -36,11 +34,28 @@ namespace RPG {
             
             if (_enemy != null) {
                 _enemy.OnEnemyDeath += OnEnemyDeath;
+                _enemy.OnEnemySpawn += OnEnemySpawn;
             }
         }
 
+        private void OnEnemySpawn() {
+            StartCoroutine(PlayClipThenTransition("isSpawn", true));
+        }
         private void OnEnemyDeath() {
+            _animator.SetBool("isDead", true);
+            StartCoroutine(PlayClip());
+        }
 
+        IEnumerator PlayClipThenTransition(string transitionParameter, bool transitionParameterValue) {
+            Debug.Log("entry");
+            yield return StartCoroutine(PlayClip());
+            _animator.SetBool(transitionParameter, transitionParameterValue);
+            Debug.Log("Set");
+        }
+        IEnumerator PlayClip() {
+            var clipLength = _animator.GetCurrentAnimatorStateInfo(0).length;
+            yield return new WaitForSeconds(clipLength);
+            Debug.Log("Played");
         }
 
         private void OnShoot() {

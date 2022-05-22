@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3211287783225438098}
   - component: {fileID: 3211287783225438096}
   - component: {fileID: 3211287783225438099}
+  - component: {fileID: 6443914124488606880}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -118,12 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f1a01fffd09c34996fde6ed20a8188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  baseDamage: 0
-  currentDamage: 0
-  baseMovementSpeed: 0
-  healthBar: {fileID: 3211287783754492922}
+  _maxHealth: 10
+  _baseDamage: 0
+  _healthBar: {fileID: 3211287783754492922}
 --- !u!50 &3211287783225438096
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +130,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3211287783225438102}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -161,6 +159,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0.046868414, y: -0.03157282}
   m_Size: {x: 0.47596043, y: 1.2168543}
   m_Direction: 0
+--- !u!114 &6443914124488606880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211287783225438102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d93ae5da06bba4cbc5ba1863558e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3211287783225438103}
+  _transform: {fileID: 3211287783225438101}
+  _movement: {fileID: 0}
+  _weapon: {fileID: 0}
+  _enemy: {fileID: 3211287783225438098}
 --- !u!1001 &3211287785098942340
 PrefabInstance:
   m_ObjectHideFlags: 0
