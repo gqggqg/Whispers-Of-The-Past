@@ -1,31 +1,21 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
 
     [CreateAssetMenu(fileName = "WaypointContainer", menuName = "Data/WaypointContainer")]
-    public class WaypointContainer : ScriptableObject {
+    public class WaypointContainer : InitializableScriptableObject {
 
         [SerializeField]
         private List<Waypont> _waypoints;
-
-
-        [NonSerialized]
-        private bool _init = false;
 
 
         private Dictionary<WaypointType, Vector2> _positionByWaypointTypesCache;
         public Dictionary<WaypointType, Vector2> PositionByWaypointTypesCache => _positionByWaypointTypesCache;
 
 
-        public void Init() {
-            if (_init) {
-                return;
-            }
-
+        protected override void OnInit() {
             InitCache();
-            _init = true;
         }
 
 
