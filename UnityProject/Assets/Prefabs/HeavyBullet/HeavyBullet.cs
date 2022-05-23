@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG {
+namespace Game {
     public class HeavyBullet : MonoBehaviour {
         public float speed = 10f;
         public Rigidbody2D rb;

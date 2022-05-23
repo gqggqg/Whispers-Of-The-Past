@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RPG {
+namespace Game {
 
     public class Player : Character {
 

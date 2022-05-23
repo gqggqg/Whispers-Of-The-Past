@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4062754433844631525}
   - component: {fileID: 222272301489225637}
   - component: {fileID: 222272301489225639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,6 +56,7 @@ MonoBehaviour:
   _attackKey: 323
   _interactionKey: 101
   _switchWeaponKey: 113
+  healthBar: {fileID: 0}
 --- !u!114 &222272301489225636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +87,7 @@ MonoBehaviour:
   _transform: {fileID: 7110579303913501405}
   _movement: {fileID: 222272301489225636}
   _weapon: {fileID: 3865962459847191799}
+  _enemy: {fileID: 0}
 --- !u!50 &222272301489225637
 Rigidbody2D:
   serializedVersion: 4

@@ -3,13 +3,22 @@ using System;
 using System.Collections;
 
 
-namespace RPG {
+namespace Game {
     public class Enemy : Character {
         [SerializeField]
-        public HealthBar _healthBar;
+        protected HealthBar _healthBar;
+
+        [SerializeField]
+        protected EnemyWeapon _weapon;
 
         public event Action OnEnemyDeath;
         public event Action OnEnemySpawn;
+        public event Action OnAttackRangeDetect;
+
+        protected IEnumerator AttackRangeDetect() {
+            OnAttackRangeDetect?.Invoke();
+            yield return new WaitForSeconds(2f);
+        }
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
 
@@ -19,13 +28,13 @@ namespace RPG {
                 StartCoroutine(DoDestroyInTime(5f));
             }
         }
-        private IEnumerator DoDestroyInTime(float time) {
+        protected IEnumerator DoDestroyInTime(float time) {
             _healthBar.gameObject.SetActive(false);
             yield return new WaitForSeconds(time);
             Death();
         }
 
-        private void Death() {
+        protected void Death() {
             Destroy(gameObject);
         }
 
