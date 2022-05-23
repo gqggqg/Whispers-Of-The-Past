@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 147786070}
   - component: {fileID: 147786069}
   m_Layer: 0
-  m_Name: SOContainer
+  m_Name: SOIniter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
