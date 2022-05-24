@@ -6,8 +6,7 @@ namespace Game {
 
     public class AnimationController : MonoBehaviour {
 
-        [SerializeField]
-        private Animator _animator;
+        public Animator _animator;
 
         [SerializeField]
         private Transform _transform;
@@ -31,20 +30,23 @@ namespace Game {
             if (_weapon != null) {
                 _weapon.OnShoot += OnShoot;
             }
-            
+
+
             if (_enemy != null) {
                 _enemy.OnEnemyDeath += OnEnemyDeath;
                 _enemy.OnEnemySpawn += OnEnemySpawn;
-                _enemy.OnAttackRangeDetect += OnAttackRangeDetect;
+                _enemy.OnEnemyAttack += OnEnemyAttack;
             }
         }
 
-        private void OnAttackRangeDetect() {
-            Debug.Log("punch");
+        private void OnEnemyAttack(int attackType) {
+
             _animator.SetBool("isPunch", true);
-            StartCoroutine(PlayClip());
+            StartCoroutine(PlayClipThenTransition("isPunch", false));
+
         }
         private void OnEnemySpawn() {
+            Debug.Log("OnEnemySpawn");
             StartCoroutine(PlayClipThenTransition("isSpawn", true));
         }
         private void OnEnemyDeath() {
@@ -55,6 +57,7 @@ namespace Game {
         IEnumerator PlayClipThenTransition(string transitionParameter, bool transitionParameterValue) {
             yield return StartCoroutine(PlayClip());
             _animator.SetBool(transitionParameter, transitionParameterValue);
+            
         }
         IEnumerator PlayClip() {
             var clipLength = _animator.GetCurrentAnimatorStateInfo(0).length;

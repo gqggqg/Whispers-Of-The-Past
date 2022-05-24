@@ -4,21 +4,24 @@ using System.Collections;
 
 
 namespace Game {
-    public class Enemy : Character {
+    public  class Enemy : Character {
         [SerializeField]
         protected HealthBar _healthBar;
 
         [SerializeField]
         protected EnemyWeapon _weapon;
 
+        
+
         public event Action OnEnemyDeath;
         public event Action OnEnemySpawn;
-        public event Action OnAttackRangeDetect;
+        public event Action<int> OnEnemyAttack;
 
-        protected IEnumerator AttackRangeDetect() {
-            OnAttackRangeDetect?.Invoke();
-            yield return new WaitForSeconds(2f);
+        
+        protected void InvokeAttackAnimation(int attackType) {
+            OnEnemyAttack?.Invoke(attackType);
         }
+
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
 
@@ -41,6 +44,7 @@ namespace Game {
         protected override void Start() {
             base.Start();
             _healthBar.SetMaxHealth(MaxHealth);
+
             OnEnemySpawn?.Invoke();
         }     
     }
