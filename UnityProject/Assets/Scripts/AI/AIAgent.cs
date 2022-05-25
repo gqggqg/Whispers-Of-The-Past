@@ -4,43 +4,27 @@ namespace Game.AI {
 
     public class AIAgent : MonoBehaviour {
 
-		[SerializeField]
-		private AIAction[] _actions;
+        [SerializeField]
+        private AIAction[] _actions;
+
 
         private AIAction _topAction;
         public AIAction TopAction => _topAction;
 
+        private bool _isActionChanged;
+        public bool IsActionChanged => _isActionChanged;
 
-        private AIPropertiesContainer _properties;
 
-
-        private void Start() {
-            InitProperties();
+        public void Init(AIPropertyContainer propertyContainer) {
+            InitActions(propertyContainer);
         }
 
-        private void InitProperties() {
-            _properties = new AIPropertiesContainer();
-            foreach (var action in _actions) {
-                foreach (var consideration in action.Considerations) {
-                    _properties.AddProperty(consideration.PropertyType);
-                }
-            }
-        }
-
-        public void UpdateAgent(AIContext context) {
-            UpdateProperties(context);
-            UpdateTopAction();
-        }
-
-        private void UpdateProperties(AIContext context) {
-            _properties.EvaluateProperties(context);
-        }
-
-        private void UpdateTopAction() {
+        public void UpdateTopAction() {
+            var previousActopn = _topAction;
             var topScore = 0f;
 
             if (_topAction != null) {
-                _topAction.Evaluate(_properties);
+                _topAction.Evaluate();
                 topScore = _topAction.Score + _topAction.Inertia;
             }
 
@@ -49,7 +33,7 @@ namespace Game.AI {
                     continue;
                 }
 
-                _actions[i].Evaluate(_properties);
+                _actions[i].Evaluate();
                 var score = _actions[i].Score;
 
                 if (score > topScore) {
@@ -57,16 +41,20 @@ namespace Game.AI {
                     topScore = score;
                 }
             }
+
+            _isActionChanged = previousActopn != _topAction;
         }
 
-        public float GetActionScore(AIActionType type) {
+        private void InitActions(AIPropertyContainer propertyContainer) {
             for (int i = 0; i < _actions.Length; i++) {
-                if (_actions[i].Type == type) {
-                    return _actions[i].Score;
-                }
+                InitActionConsiderations(_actions[i].Considerations, propertyContainer);
             }
+        }
 
-            return 0f;
+        private void InitActionConsiderations(AIConsideration[] considerations, AIPropertyContainer propertyContainer) {
+            for (int i = 0; i < considerations.Length; i++) {
+                considerations[i].Init(propertyContainer);
+            }
         }
     }
 }

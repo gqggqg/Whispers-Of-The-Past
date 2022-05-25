@@ -1,6 +1,6 @@
 namespace Game.AI {
 
-    public abstract class AIProperty : IConsiderationProperty {
+    public abstract class AIProperty : IEvaluatedProperty {
 
         private float _normalizedValue;
         public float NormalizedValue => _normalizedValue;

@@ -1,8 +1,8 @@
 namespace Game.AI {
 
-    public enum AIPropertyType {
+    public enum AIEvaluatedPropertyType {
 
-        Hungry,
+        Hungred,
         Hygiene,
 
         Energy,

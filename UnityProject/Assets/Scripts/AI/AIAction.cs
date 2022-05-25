@@ -2,37 +2,32 @@ using UnityEngine;
 
 namespace Game.AI {
 
-    public enum AIActionType {
-
-        Idle,
-        Work,
-        Sleep,
-        GoToLake,
-        GoToMill,
-        GoToWell,
-        GoToSquare,
-        GoToChurch,
-        GoToArmory,
-        GoToWheatField,
-        GoToFamilyHouse,
-        GoToFarmerHouse,
-        GoToFishermanHouse,
-    }
-
     [CreateAssetMenu(menuName = "Data/AI/Action")]
     public class AIAction : ScriptableObject {
+
+        [SerializeField]
+        private AIActionType _type;
+        public AIActionType Type => _type;
 
         [SerializeField]
         private bool _enable = true;
         public bool Enable => _enable;
 
         [SerializeField]
+        private bool _motionInterrupted;
+        public bool MotionInterrupted => _motionInterrupted;
+
+        [SerializeField]
+        private float _duration;
+        public float Duration => _duration;
+         
+        [SerializeField]
         private float _inertia;
         public float Inertia => _inertia;
 
         [SerializeField]
-        private AIActionType _type;
-        public AIActionType Type => _type;
+        private Vector3 _interestPoint;
+        public Vector3 InterestPoint => _interestPoint;
 
         [SerializeField]
         private AIConsideration[] _considerations;
@@ -43,15 +38,15 @@ namespace Game.AI {
         public float Score => _enable ? _score : 0f;
 
 
-        public void Evaluate(AIPropertiesContainer properties) {
+        public void Evaluate() {
             if (!_enable) {
                 return;
             }
 
-            CalculateScore(properties);
+            CalculateScore();
         }
 
-        private void CalculateScore(AIPropertiesContainer properties) {
+        private void CalculateScore() {
             _score = 0f;
 
             var considerationCount = 0;
@@ -61,8 +56,8 @@ namespace Game.AI {
                     continue;
                 }
 
-                var isBool = _considerations[i].Type == AIConsiderationType.Boolean;
-                var score = _considerations[i].Evaluate(properties);
+                var score = _considerations[i].Evaluate();
+                var isBool = _considerations[i].IsBool;
 
                 if (score == 0f && (_considerations[i].Veto || isBool)) {
                     _score = 0f;
@@ -75,7 +70,9 @@ namespace Game.AI {
                 }
             }
 
-            _score /= considerationCount;
+            if (considerationCount != 0) {
+                _score /= considerationCount;
+            }
         }
     }
 }

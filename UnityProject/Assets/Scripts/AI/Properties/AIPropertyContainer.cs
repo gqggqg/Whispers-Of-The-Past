@@ -1,48 +1,27 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Game.AI {
 
     public class AIPropertyContainer {
 
-        private Dictionary<AIPropertyType, IConsiderationProperty> _propertyByTypeCache;
+        private Dictionary<AIEvaluatedPropertyType, IEvaluatedProperty> _propertyByTypes = 
+            new Dictionary<AIEvaluatedPropertyType, IEvaluatedProperty>();
 
-        public AIPropertyContainer(AINeed[] needs) {
-            InitCache(needs);
-        }
-
-        private void InitCache(AINeed[] needs) {
-            _propertyByTypeCache = new Dictionary<AIPropertyType, IConsiderationProperty>();
-            foreach (var need in needs) {
-                if (!_propertyByTypeCache.ContainsKey(need.PropertyType)) {
-                    _propertyByTypeCache.Add(need.PropertyType, need);
-                }
+        public void TryAddProperty(AIEvaluatedPropertyType type, IEvaluatedProperty property) {
+            if (!_propertyByTypes.ContainsKey(type)) {
+                _propertyByTypes.Add(type, property);
             }
-        }
-
-        public void AddProperty(AIPropertyType propertyType) {
-            if (_propertyByTypeCache.ContainsKey(propertyType)) {
-                return;
-            }
-
-            var property = AIPropertyFactory.CreateProperty(propertyType);
-            if (property == null) {
-                Debug.LogWarningFormat("AIPropertyFactory doesn't contains {0}.", propertyType);
-                return;
-            }
-
-            _propertyByTypeCache.Add(propertyType, property);
         }
 
         public void EvaluateProperties(AIContext context) {
-            foreach (var property in _propertyByTypeCache.Values) {
+            foreach (var property in _propertyByTypes.Values) {
                 property.Evaluate(context);
             }
         }
 
-        public IConsiderationProperty GetProperty(AIPropertyType propertyType) {
-            if (_propertyByTypeCache.ContainsKey(propertyType)) {
-                return _propertyByTypeCache[propertyType];
+        public IEvaluatedProperty GetProperty(AIEvaluatedPropertyType type) {
+            if (!_propertyByTypes.ContainsKey(type)) {
+                return _propertyByTypes[type];
             }
 
             return null;

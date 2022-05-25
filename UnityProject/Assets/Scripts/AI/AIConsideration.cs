@@ -3,23 +3,12 @@ using UnityEngine;
 
 namespace Game.AI {
 
-    public enum AIConsiderationType {
-
-        Weighted,
-        Boolean,
-    }
-
     [Serializable]
     public class AIConsideration {
-
-        [SerializeField]
-        private AIPropertyType _propertyType;
-        public AIPropertyType PropertyType => _propertyType;
 
         [Header("Consideration")]
         [SerializeField]
         private bool _enabled = true;
-        public bool Enabled => _enabled;
 
         [SerializeField]
         private AIConsiderationType _type;
@@ -41,19 +30,57 @@ namespace Game.AI {
         [SerializeField]
         private AnimationCurve _curve;
 
+        [Header("Property")]
+        [SerializeField]
+        private AIEvaluatedPropertyType _propertyType;
+        public AIEvaluatedPropertyType PropertyType => _propertyType;
 
-        public float Evaluate(AIPropertiesContainer properties) {
-            var property = properties.GetProperty(_propertyType);
+        [SerializeField]
+        private AIVariabledPropertyBase _variabledProperty;
 
-            if (!_enabled || property == null) {
+        [SerializeField]
+        private bool _isAnotherPersonProperty;
+
+
+        private IEvaluatedProperty _property;
+
+
+        public bool Enabled {
+            get { return _enabled; }
+            set { _enabled = value; }
+        }
+
+        public bool IsBool => _type == AIConsiderationType.Boolean;
+
+
+        public void Init(AIPropertyContainer propertyContainer) {
+            TryInitProperty();
+
+            if (_property != null) {
+                propertyContainer.TryAddProperty(_propertyType, _property);
+            }
+        }
+
+        public float Evaluate() {
+            if (!Enabled || _property == null) {
                 return 0f;
             }
 
-            if (_type == AIConsiderationType.Boolean) {
-                return property.NormalizedValue == _value ? 1f : 0f;
+            if (IsBool) {
+                return _property.NormalizedValue == _value ? 1f : 0f;
             }
 
-            return _curve.Evaluate(property.NormalizedValue);
+            return _curve.Evaluate(_property.NormalizedValue);
+        }
+
+        private void TryInitProperty() {
+            if (_variabledProperty != null && !_isAnotherPersonProperty &&
+                _variabledProperty is IVariabledProperty property) {
+                _property = property;
+                return;
+            }
+
+            _property = AIPropertyFactory.CreateProperty(_propertyType);
         }
     }
 }

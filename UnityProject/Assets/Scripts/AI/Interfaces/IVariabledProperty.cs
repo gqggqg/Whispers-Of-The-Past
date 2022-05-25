@@ -1,6 +1,6 @@
 namespace Game.AI {
 
-    public interface ICharacterNeed {
+    public interface IVariabledProperty : IEvaluatedProperty {
 
         public void Init();
         public void Update();
