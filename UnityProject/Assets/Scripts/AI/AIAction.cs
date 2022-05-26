@@ -26,8 +26,8 @@ namespace Game.AI {
         public float Inertia => _inertia;
 
         [SerializeField]
-        private Vector3 _interestPoint;
-        public Vector3 InterestPoint => _interestPoint;
+        private WaypointType _interestPointType;
+        public WaypointType InterestPointType => _interestPointType;
 
         [SerializeField]
         private AIConsideration[] _considerations;

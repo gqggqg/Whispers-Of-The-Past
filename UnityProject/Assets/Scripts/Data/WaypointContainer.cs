@@ -3,36 +3,36 @@ using UnityEngine;
 
 namespace Game {
 
-    [CreateAssetMenu(fileName = "WaypointContainer", menuName = "Data/WaypointContainer")]
-    public class WaypointContainer : InitializableScriptableObject {
+    public class WaypointContainer : Singleton<WaypointContainer> {
 
         [SerializeField]
-        private List<Waypont> _waypoints;
+        private List<Waypoint> _waypoints;
 
 
-        private Dictionary<WaypointType, Vector2> _positionByWaypointTypesCache;
-        public Dictionary<WaypointType, Vector2> PositionByWaypointTypesCache => _positionByWaypointTypesCache;
+        private Dictionary<WaypointType, Vector3> _positionByWaypointTypes;
+        public Dictionary<WaypointType, Vector3> PositionByWaypointTypes => _positionByWaypointTypes;
 
 
-        protected override void OnInit() {
+        protected override void Awake() {
+            base.Awake();
             InitCache();
         }
 
 
-        public Vector2 GetPosition(WaypointType waypointType) {
-            if (_positionByWaypointTypesCache.ContainsKey(waypointType)) {
-                return _positionByWaypointTypesCache[waypointType];
+        public Vector3 GetPosition(WaypointType waypointType) {
+            if (_positionByWaypointTypes.ContainsKey(waypointType)) {
+                return _positionByWaypointTypes[waypointType];
             }
 
             Debug.LogWarning($"{GetType()} doesn't contain a {waypointType} waypoint.");
-            return Vector2.zero;
+            return Vector3.zero;
         }
 
         private void InitCache() {
-            _positionByWaypointTypesCache = new Dictionary<WaypointType, Vector2>();
+            _positionByWaypointTypes = new Dictionary<WaypointType, Vector3>();
             foreach (var waypoint in _waypoints) {
-                if (!_positionByWaypointTypesCache.ContainsKey(waypoint.Type)) {
-                    _positionByWaypointTypesCache.Add(waypoint.Type, waypoint.Position);
+                if (!_positionByWaypointTypes.ContainsKey(waypoint.Type)) {
+                    _positionByWaypointTypes.Add(waypoint.Type, waypoint.Position);
                 }
             }
         }
