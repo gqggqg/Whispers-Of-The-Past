@@ -7,5 +7,7 @@ namespace Game.AI {
         Energy,
         Social,
         Money,
+        CurrentTimeInHours,
+        IsWeekend,
     }
 }
