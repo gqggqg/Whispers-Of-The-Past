@@ -9,10 +9,18 @@ namespace Utils {
 
         public static float Speed { get; set; } = 1f;
 
+
+        /// <summary>
+        /// In minutes
+        /// </summary>
         public static float DeltaTime {
             get {
                 if (_isPause) {
                     return 0.0f;
+                }
+
+                if (Speed < 0.0f) {
+                    return Time.deltaTime / (-Speed);
                 }
 
                 return Time.deltaTime * Speed;
