@@ -34,6 +34,7 @@ namespace Game.AI {
         private void Init() {
             _actionTimer = new AIActionTimer();
             _propertyContainer = new AIPropertyContainer();
+
             _agent.Init(_propertyContainer);
 
             _context = new AIContext() {
@@ -88,7 +89,11 @@ namespace Game.AI {
         }
 
         private void TryMoveToActionPoint() {
-            _character.TargetPosition = _topAction.InterestPoint;
+            _character.TargetPosition = GetPosition();
+        }
+
+        private Vector3 GetPosition() {
+            return WaypointContainer.Instance.GetPosition(_topAction.InterestPointType);
         }
 
         private void ExecuteTopAction() {
@@ -97,19 +102,21 @@ namespace Game.AI {
 
             switch (_agent.TopAction.Type) {
                 case AIActionType.EatAtTavern:
-                    Debug.Log("EatAtTavern");
-                    _character.ChangeNeedToDelta(AIVariabledPropertyType.Hunger, -50f);
+                    ChangeStatAtTopAction(AIVariabledPropertyType.Hunger, -50f);
                     break;
                 case AIActionType.Sleep:
-                    Debug.Log("Sleep");
-                    _character.ChangeNeedToDelta(AIVariabledPropertyType.Energy, 80f);
+                    ChangeStatAtTopAction(AIVariabledPropertyType.Energy, 80f);
                     break;
                 case AIActionType.Work:
-                    Debug.Log("Work");
-                    _character.ChangeNeedToDelta(AIVariabledPropertyType.Hunger, 50f);
-                    _character.ChangeNeedToDelta(AIVariabledPropertyType.Energy, -60f);
+                    ChangeStatAtTopAction(AIVariabledPropertyType.Hunger, 50f);
+                    ChangeStatAtTopAction(AIVariabledPropertyType.Energy, -60f);
                     break;
             }
+        }
+
+        private void ChangeStatAtTopAction(AIVariabledPropertyType type, float value) {
+            var stat = _character.GetStat(type);
+            stat.ChangeValueInPeriodOfTime(value, _topAction.Duration);
         }
     }
 }

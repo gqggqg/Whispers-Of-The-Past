@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Utils;
 
@@ -42,6 +43,10 @@ namespace Game.AI {
             UpdateValue(deltaValue);
         }
 
+        public void ChangeValueInPeriodOfTime(float value, float duration) {
+            AIPropertyCorotineLauncher.Instance.StartCoroutine(ChangeValueInPeriodOfTimeCoroutine(value, duration));
+        }
+
         protected override float EvaluateValue(AIContext context) {
             return (_currentValue - _minValue) / (_maxValue - _minValue);
         }
@@ -49,6 +54,18 @@ namespace Game.AI {
         private void UpdateValue(float deltaValue) {
             _currentValue += deltaValue;
             _currentValue = Mathf.Clamp(_currentValue, _minValue, _maxValue);
+        }
+
+        private IEnumerator ChangeValueInPeriodOfTimeCoroutine(float value, float duration) {    
+            var deltaValue = value / duration;
+            var timer = 0f;
+
+            _changePerMinute += deltaValue;
+            while (timer < duration) {
+                timer += TimeUtility.DeltaTime;
+                yield return null;
+            }
+            _changePerMinute -= deltaValue;
         }
     }
 }
