@@ -29,16 +29,16 @@ namespace Game {
 
 		private int _startDay;
 
-		private int _totalMinutes;
+		private float _totalMinutes;
 
-		private int _days;
-		private int _hours;
-		private int _minutes;
+		private float _days;
+		private float _hours;
+		private float _minutes;
 
 
 		public Weekday Weekday => (Weekday)_days;
-		public int Hours => _hours;
-		public int Minutes => _minutes;
+		public int Hours => (int)_hours;
+		public int Minutes => (int)_minutes;
 
 
 		protected override void Awake() {
@@ -61,10 +61,10 @@ namespace Game {
         }
 
         private void Update() {
-			_totalMinutes += (int)TimeUtility.DeltaTime;
+			_totalMinutes += TimeUtility.DeltaTime;
 
 			var totalHours = _totalMinutes / 60 + _startHour;
-			var totalDays = totalHours / 24 + _startDay;
+			var totalDays = _totalMinutes / 1440 + _startDay;
 
 			_minutes = _totalMinutes % 60;
 			_hours = totalHours % 24;
@@ -73,7 +73,7 @@ namespace Game {
 			UpdateProperties();
 		}
 
-        private void LateUpdate() {
+		private void LateUpdate() {
 			TimeUtility.Speed = _speed;
         }
 
