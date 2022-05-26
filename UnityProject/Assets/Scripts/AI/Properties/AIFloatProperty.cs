@@ -13,11 +13,17 @@ namespace Game.AI {
         protected float _maxValue;
 
         [SerializeField]
-        protected float _changePerSecond;
+        protected float _changePerMinute;
 
 
         private float _currentValue;
-        public float CurrentValue => _currentValue;
+        public float CurrentValue {
+            get { return _currentValue; }
+            set {
+                _currentValue = 0f;
+                ChangeByDeltaValue(value);
+            }
+        }
 
 
         private float RandomValue => Random.Range(_minValue, _maxValue);
@@ -28,7 +34,7 @@ namespace Game.AI {
         }
 
         public override void Update() {
-            var deltaValue = TimeUtility.DeltaTime * _changePerSecond;
+            var deltaValue = TimeUtility.DeltaTime * _changePerMinute;
             UpdateValue(deltaValue);
         }
 
