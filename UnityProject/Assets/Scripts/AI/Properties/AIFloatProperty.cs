@@ -56,16 +56,17 @@ namespace Game.AI {
             _currentValue = Mathf.Clamp(_currentValue, _minValue, _maxValue);
         }
 
-        private IEnumerator ChangeValueInPeriodOfTimeCoroutine(float value, float duration) {    
-            var deltaValue = value / duration;
-            var timer = 0f;
+        private IEnumerator ChangeValueInPeriodOfTimeCoroutine(float value, float duration) {
+            var baseChangePerMinute = _changePerMinute;
+            _changePerMinute = value / duration;
 
-            _changePerMinute += deltaValue;
+            var timer = 0f;
             while (timer < duration) {
                 timer += TimeUtility.DeltaTime;
                 yield return null;
             }
-            _changePerMinute -= deltaValue;
+
+            _changePerMinute = baseChangePerMinute;
         }
     }
 }
