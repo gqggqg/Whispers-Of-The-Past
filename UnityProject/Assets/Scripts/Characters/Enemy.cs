@@ -11,7 +11,8 @@ namespace Game {
         [SerializeField]
         protected EnemyWeapon _weapon;
 
-        
+        [SerializeField]
+        protected Collider2D _collider;
 
         public event Action OnEnemyDeath;
         public event Action OnEnemySpawn;
@@ -25,9 +26,12 @@ namespace Game {
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
 
-            _healthBar.SetHealth(MaxHealth - _currentHealth);
+            _healthBar.SetHealth(_currentHealth);
             if (_currentHealth <= 0) {
                 OnEnemyDeath?.Invoke();
+                Debug.Log("died");
+                _weapon.enabled = false;
+                _collider.enabled = false;
                 StartCoroutine(DoDestroyInTime(5f));
             }
         }

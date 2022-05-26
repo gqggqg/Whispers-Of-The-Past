@@ -156,4 +156,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 1170972385246840513}
-  collapseEffect: {fileID: 5733982010550724243, guid: 038516221617f144f8c5b3b8b5a27fe8, type: 3}
+  animator: {fileID: 4682767137665721151}

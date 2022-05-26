@@ -20,7 +20,8 @@ namespace Game {
         [SerializeField]
         private Enemy _enemy;
 
-        private bool _facingRight;
+
+
 
         private void Start() {
             if (_movement != null) {
@@ -39,6 +40,9 @@ namespace Game {
             }
         }
 
+        private void OnShoot() {
+            _weapon._animator.Play(0);
+        }
         private void OnEnemyAttack(int attackType) {
 
             _animator.SetBool("isPunch", true);
@@ -64,27 +68,9 @@ namespace Game {
             yield return new WaitForSeconds(clipLength);
         }
 
-        private void OnShoot() {
-            var dir = Input.mousePosition;
-            dir = Camera.main.ScreenToWorldPoint(dir);
-            dir = dir - transform.position;
-            FlipToDirection(dir);
-        }
 
         private void OnMove() {
-            FlipToDirection(_movement.Direction);
             _animator.SetFloat("Speed", _movement.Speed);
-        }
-   
-        private void FlipToDirection(Vector2 direction) {
-            if (direction.x < 0 && !_facingRight || 
-                direction.x > 0 && _facingRight ||     
-                direction.x == 0) {
-                return;
-            }
-
-            _facingRight = !_facingRight;
-            _transform.Rotate(0f, 180f, 0f);
         }
     }
 }

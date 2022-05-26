@@ -19,18 +19,13 @@ namespace Game {
         }
 
         private void OnTriggerEnter2D(Collider2D hitInfo) {
-            Debug.Log(hitInfo.name);
+
             Enemy target = hitInfo.GetComponent<Enemy>();
 
-            if (hitInfo.name == "HeavyBullet(Clone)") {
+            if (target == null) {
                 return;
             }
-            if (hitInfo.name == "MainCharacter") {
-                return;
-            }
-            if (target != null) {
-                target.TakeDamage(1);
-            }
+            target.TakeDamage(1);
             rb.velocity = Vector2.zero;
             StartCoroutine(BulletCollapse());
             

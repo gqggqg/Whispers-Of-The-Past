@@ -19,11 +19,16 @@ namespace Game {
         [SerializeField]
         private KeyCode _switchWeaponKey;
 
+        [SerializeField]
+        private KeyCode _reloadWeaponKey;
 
 
         private void Update() {
-            if (Input.GetKeyDown(_attackKey)) {
-                _weapon.Shoot();
+            if (Input.GetKey(_attackKey)) {
+                _weapon.Attack();
+            }
+            if (Input.GetKey(_reloadWeaponKey)) {
+                _weapon.Reload();
             }
         }
 
@@ -35,15 +40,16 @@ namespace Game {
         /// 
         private bool canAttack = true;
         //
-        public HealthBar healthBar;
         protected override void Start() {
             base.Start();
+
             _healthBar.SetMaxHealth(MaxHealth);
+            
         }
 
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
-            _healthBar.SetHealth(MaxHealth - _currentHealth);
+            _healthBar.SetHealth(_currentHealth);
         }
     }
 }
