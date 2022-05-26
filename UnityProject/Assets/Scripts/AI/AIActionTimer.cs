@@ -27,7 +27,7 @@ namespace Game.AI {
             _time = duration;
         }
 
-        public void Stop() {
+        private void Stop() {
             _isRun = false;
             _time = 0f;
         }

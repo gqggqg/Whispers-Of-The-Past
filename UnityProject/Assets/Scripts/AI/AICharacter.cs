@@ -15,24 +15,15 @@ namespace Game.AI {
         private List<AIFloatProperty> _stats;
 
 
-        private Dictionary<AIVariabledPropertyType, AIFloatProperty> _statsByType;
-
-
         [NonSerialized]
         private bool _isMove = false;
         public bool IsMove => _isMove;
 
         [NonSerialized]
         private Vector3 _targetPosition;
-        public Vector3 TargetPosition {
-            get {
-                return _targetPosition;
-            }
-            set {
-                _isMove = true;
-                _targetPosition = value;
-            }
-        }
+
+
+        private Dictionary<AIVariabledPropertyType, AIFloatProperty> _statsByType;
 
 
         private void Awake() {
@@ -46,12 +37,9 @@ namespace Game.AI {
             }
         }
 
-        public void MoveToTarget() {
-            float step = _baseSpeed * TimeUtility.DeltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, step);
-            if (transform.position == _targetPosition) {
-                _isMove = false;
-            }
+        public void SetTargetPosition(Vector3 position) {
+            _targetPosition = position;
+            _isMove = true;
         }
 
         public void ChangeStatToDelta(AIVariabledPropertyType type, float deltaValue) {
@@ -81,6 +69,15 @@ namespace Game.AI {
         private void UpdateStats() {
             foreach (var need in _stats) {
                 need.Update();
+            }
+        }
+
+        private void MoveToTarget() {
+            float distanceDelta = _baseSpeed * TimeUtility.DeltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, distanceDelta);
+
+            if (transform.position == _targetPosition) {
+                _isMove = false;
             }
         }
     }

@@ -19,7 +19,7 @@ namespace Game.AI {
         private AIAction _topAction;
         private AIContext _context;
 
-        private bool _isActionExecution;
+        private AIActionPhase _currentPhase;
 
 
         private void Awake() {
@@ -48,24 +48,28 @@ namespace Game.AI {
                 return;
             }
 
-            if (_character.IsMove && !_topAction.MotionInterrupted) {
-                return;
+            if (_currentPhase == AIActionPhase.Motion) {
+                if (!_character.IsMove) {
+                    StartActPhase();
+                    return;
+                }
+
+                if (_topAction.MotionInterrupted) {
+                    UpdateTopAction();
+                    return;
+                }
             }
 
-            if (_character.IsMove && _topAction.MotionInterrupted) {
-                UpdateTopAction();
-            }
+            if (_currentPhase == AIActionPhase.Act) {
+                if (_topAction.ActionInterrupted) {
+                    UpdateTopAction();
+                    return;
+                }
 
-            if (_actionTimer.IsRun) {
-                return;
+                if (!_actionTimer.IsRun) {
+                    UpdateTopAction();
+                }
             }
-
-            if (!_isActionExecution) {
-                ExecuteTopAction();
-                return;
-            }
-
-            UpdateTopAction();
         }
 
         private void UpdateTopAction() {
@@ -74,12 +78,17 @@ namespace Game.AI {
             _propertyContainer.EvaluateProperties(_context);
             _agent.UpdateTopAction();
 
-            _isActionExecution = false;
-
             if (_agent.IsActionChanged) {
                 _topAction = _agent.TopAction;
-                TryMoveToActionPoint();
+                StartMotionPhase();
+                return;
             }
+
+            if (_actionTimer.IsRun) {
+                return;
+            }
+
+            StartActPhase();
         }
 
         private void UpdateContext() {
@@ -88,16 +97,27 @@ namespace Game.AI {
             // Find points of interest
         }
 
-        private void TryMoveToActionPoint() {
-            _character.TargetPosition = GetPosition();
+        private void StartMotionPhase() {
+            _currentPhase = AIActionPhase.Motion;
+            MoveToActionPoint();
         }
 
-        private Vector3 GetPosition() {
+        private void StartActPhase() {
+            _currentPhase = AIActionPhase.Act;
+            ExecuteAction();
+        }
+
+        private void MoveToActionPoint() {
+            var position = GetPositionForTopAction();
+            _character.SetTargetPosition(position);
+            _currentPhase = AIActionPhase.Motion;
+        }
+
+        private Vector3 GetPositionForTopAction() {
             return WaypointContainer.Instance.GetPosition(_topAction.InterestPointType);
         }
 
-        private void ExecuteTopAction() {
-            _isActionExecution = true;
+        private void ExecuteAction() {
             _actionTimer.Start(_topAction.Duration);
 
             switch (_agent.TopAction.Type) {

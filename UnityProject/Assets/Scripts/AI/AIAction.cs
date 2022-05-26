@@ -18,6 +18,10 @@ namespace Game.AI {
         public bool MotionInterrupted => _motionInterrupted;
 
         [SerializeField]
+        private bool _actionInterrupted;
+        public bool ActionInterrupted => _actionInterrupted;
+
+        [SerializeField]
         private float _duration;
         public float Duration => _duration;
          
