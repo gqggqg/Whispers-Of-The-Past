@@ -31,7 +31,6 @@ namespace Game.AI {
             set {
                 _isMove = true;
                 _targetPosition = value;
-                Debug.Log($"New target: {value}");
             }
         }
 
@@ -51,12 +50,11 @@ namespace Game.AI {
             float step = _baseSpeed * TimeUtility.DeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _targetPosition, step);
             if (transform.position == _targetPosition) {
-                Debug.Log("Path end");
                 _isMove = false;
             }
         }
 
-        public void ChangeNeedToDelta(AIVariabledPropertyType type, float deltaValue) {
+        public void ChangeStatToDelta(AIVariabledPropertyType type, float deltaValue) {
             if (_statsByType.ContainsKey(type)) {
                 _statsByType[type].ChangeByDeltaValue(deltaValue);
             }
