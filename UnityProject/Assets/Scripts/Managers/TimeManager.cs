@@ -17,7 +17,7 @@ namespace Game {
 		private bool _randomizeTime;
 
 		[SerializeField]
-		[Range(0, 100)]
+		[Range(-10, 100)]
 		private int _speed;
 
 		[SerializeField]
@@ -55,6 +55,10 @@ namespace Game {
 
 			_totalMinutes = _hours * 60;
 		}
+
+        private void Start() {
+            UpdateProperties();
+        }
 
         private void Update() {
 			_totalMinutes += (int)TimeUtility.DeltaTime;
