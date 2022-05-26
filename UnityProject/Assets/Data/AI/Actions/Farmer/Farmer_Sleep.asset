@@ -15,9 +15,9 @@ MonoBehaviour:
   _type: 1
   _enable: 1
   _motionInterrupted: 0
-  _duration: 8
+  _duration: 480
   _inertia: 0
-  _interestPoint: {x: 571, y: 142, z: 0}
+  _interestPointType: 1
   _considerations:
   - _enabled: 1
     _type: 0

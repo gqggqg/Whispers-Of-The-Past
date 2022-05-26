@@ -15,9 +15,10 @@ MonoBehaviour:
   _type: 0
   _enable: 1
   _motionInterrupted: 0
-  _duration: 7
+  _actionInterrupted: 0
+  _duration: 420
   _inertia: 0
-  _interestPoint: {x: 58, y: 163, z: 0}
+  _interestPointType: 7
   _considerations:
   - _enabled: 1
     _type: 0
@@ -54,7 +55,7 @@ MonoBehaviour:
   - _enabled: 1
     _type: 0
     _value: 0
-    _weight: 1
+    _weight: 2
     _veto: 0
     _curve:
       serializedVersion: 2

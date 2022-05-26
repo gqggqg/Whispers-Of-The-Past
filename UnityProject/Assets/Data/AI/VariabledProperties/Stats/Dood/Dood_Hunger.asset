@@ -17,4 +17,4 @@ MonoBehaviour:
   _startValue: 0
   _minValue: 0
   _maxValue: 100
-  _changePerSecond: 2
+  _changePerMinute: 0.14
