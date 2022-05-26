@@ -157,3 +157,4 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 1170972385246840513}
   animator: {fileID: 4682767137665721151}
+  _maxRange: 5

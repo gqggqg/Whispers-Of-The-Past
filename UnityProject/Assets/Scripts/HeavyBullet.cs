@@ -6,15 +6,22 @@ namespace Game {
     public class HeavyBullet : MonoBehaviour {
         public float speed = 10f;
         public Rigidbody2D rb;
-        public Animator animator;
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private float _maxRange;
+
+        private Vector3 _startPosition;
+
 
         void Start() {
-            animator = GetComponent<Animator>();
             Vector3 dir = Input.mousePosition;
             dir = Camera.main.ScreenToWorldPoint(dir);
             dir = dir - transform.position;
             dir.z = 0.0f;
             dir.Normalize();
+            _startPosition = transform.position;
             rb.velocity = dir * speed;
         }
 
@@ -26,11 +33,18 @@ namespace Game {
                 return;
             }
             target.TakeDamage(1);
-            rb.velocity = Vector2.zero;
             StartCoroutine(BulletCollapse());
             
         }
+
+        private void FixedUpdate() {
+            float _distanseTraveled = Mathf.Abs((transform.position - _startPosition).magnitude);
+            if (_distanseTraveled >= _maxRange) {
+                StartCoroutine(BulletCollapse());
+            }
+        }
         IEnumerator BulletCollapse() {
+            rb.velocity = Vector2.zero;
             animator.SetBool("isDestroy", true);
             yield return new WaitForSeconds(0.3f);
             Destroy(gameObject);
