@@ -1,42 +1,41 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+namespace Game.UI {
+    public class MainMenu : MonoBehaviour {
 
-    [SerializeField] 
-    private Button _play;
+        [SerializeField]
+        private Button _playButton;
 
-    [SerializeField] 
-    private Button _settings;
+        [SerializeField]
+        private Button _settingsButton;
 
-    [SerializeField] 
-    private Button _exit;
-    
-    void Start() {
+        [SerializeField]
+        private Button _exitButton;
 
-        _play.onClick.AddListener(PlayPressed);
+        private bool _isGamePaused = false;
 
-        _settings.onClick.AddListener(SettingsPressed);
+        private void Start() {
+            _playButton.onClick.AddListener(LoadGameScene);
+            _settingsButton.onClick.AddListener(LoadSettingsScreen);
+            _exitButton.onClick.AddListener(QuitGame);
+        }
 
-        _exit.onClick.AddListener(ExitPressed);
-    }
+        private void LoadGameScene() {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(1);
+        }
 
-    public void PlayPressed() {
-        SceneManager.LoadScene(1);
-    }
+        private void LoadSettingsScreen() {
+            // TODO: Implement settings menu correctly
+            // menu.SetActive(false);
+            // settingsMenu.SetActive(true);
+        }
 
-    public void SettingsPressed() {
-        //TODO: Implement settings menu correctly
-        //   menu.SetActive(false);
-        //   settingsMenu.SetActive(true);
-    }
-
-    public void ExitPressed() {
-        Application.Quit();
-        Debug.Log("Clicked the button");
+        private void QuitGame() {
+            Application.Quit();
+            Debug.Log("Quit the game");
+        }
     }
 }

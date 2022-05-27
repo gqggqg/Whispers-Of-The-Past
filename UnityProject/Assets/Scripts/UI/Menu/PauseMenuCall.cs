@@ -8,7 +8,7 @@ public class PauseMenuCall : MonoBehaviour {
     private bool _isGamePaused = false;
 
     private void Start() {
-        PauseMenu.onResume += ChangeMenuState;
+        //PauseMenu.onResume += ChangeMenuState;
     }
 
     private void Update() {
