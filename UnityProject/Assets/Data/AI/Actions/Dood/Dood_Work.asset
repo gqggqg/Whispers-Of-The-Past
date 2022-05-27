@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c762815ea7e7294bb661bffc3dec615, type: 3}
+  m_Name: Dood_Work
+  m_EditorClassIdentifier: 
+  _type: 0
+  _enable: 1
+  _motionInterrupted: 0
+  _duration: 240
+  _inertia: 0
+  _interestPointType: 1
+  _considerations:
+  - _enabled: 1
+    _type: 0
+    _value: 0
+    _weight: 1
+    _veto: 0
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -0.1757385
+        outSlope: -0.1757385
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.067410395
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -2.2640827
+        outSlope: -2.2640827
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.034017205
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    _propertyType: 0
+    _variabledProperty: {fileID: 11400000, guid: 469bd1e5c71bf6541888996c1abe2ed4, type: 2}
+    _isAnotherPersonProperty: 0
+  - _enabled: 1
+    _type: 0
+    _value: 0
+    _weight: 1
+    _veto: 0
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    _propertyType: 2
+    _variabledProperty: {fileID: 11400000, guid: 46996a68a66f2fe49afb170f90209936, type: 2}
+    _isAnotherPersonProperty: 0

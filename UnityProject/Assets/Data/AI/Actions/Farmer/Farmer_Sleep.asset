@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c762815ea7e7294bb661bffc3dec615, type: 3}
+  m_Name: Farmer_Sleep
+  m_EditorClassIdentifier: 
+  _type: 1
+  _enable: 1
+  _motionInterrupted: 0
+  _duration: 480
+  _inertia: 0
+  _interestPointType: 1
+  _considerations:
+  - _enabled: 1
+    _type: 0
+    _value: 0
+    _weight: 1
+    _veto: 0
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -1
+        outSlope: -1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    _propertyType: 2
+    _variabledProperty: {fileID: 11400000, guid: c602418c08205cc42bf71ad9bfa32ca4, type: 2}
+    _isAnotherPersonProperty: 0

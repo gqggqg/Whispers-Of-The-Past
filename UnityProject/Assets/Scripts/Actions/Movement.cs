@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace RPG {
+namespace Game {
 
     public class Movement : MonoBehaviour {
 
