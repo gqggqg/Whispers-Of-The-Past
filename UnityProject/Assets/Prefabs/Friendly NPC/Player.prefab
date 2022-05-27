@@ -52,7 +52,7 @@ MonoBehaviour:
   _maxHealth: 10
   _baseDamage: 1
   _healthBar: {fileID: 5302151875508999339}
-  _weapon: {fileID: 3865962459847191799}
+  _weapon: {fileID: 8030000019547587357}
   _attackKey: 323
   _interactionKey: 101
   _switchWeaponKey: 113
@@ -86,7 +86,7 @@ MonoBehaviour:
   _animator: {fileID: 2739605280528228648}
   _transform: {fileID: 0}
   _movement: {fileID: 222272301489225636}
-  _weapon: {fileID: 3865962459847191799}
+  _weapon: {fileID: 0}
   _enemy: {fileID: 0}
 --- !u!50 &222272301489225637
 Rigidbody2D:
@@ -134,7 +134,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 222272302095404514}
-  - component: {fileID: 3865962459847191799}
+  - component: {fileID: 8030000019547587357}
+  - component: {fileID: 1583023555599215460}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -156,7 +157,7 @@ Transform:
   m_Father: {fileID: 692329278301777688}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &3865962459847191799
+--- !u!114 &8030000019547587357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,8 +173,27 @@ MonoBehaviour:
   _maxAmmo: 6
   _reloadTime: 2
   _cooldawnTime: 0.2
-  _animator: {fileID: 0}
+  _animator: {fileID: 1583023555599215460}
   _nextAttack: 0
+--- !u!95 &1583023555599215460
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222272302095404513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cda5db67523bbc14eb38bfd081ba1d2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1163053486113749909
 GameObject:
   m_ObjectHideFlags: 0

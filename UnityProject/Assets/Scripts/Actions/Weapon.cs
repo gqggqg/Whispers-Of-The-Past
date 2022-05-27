@@ -19,6 +19,9 @@ namespace Game {
         [SerializeField]
         private float _cooldawnTime;
 
+        [SerializeField]
+        private Pivot _pivot;
+
         public Animator _animator;
 
         public event Action OnShoot;
@@ -53,7 +56,7 @@ namespace Game {
         IEnumerator Shoot() {
             _curAmmo--;
             OnShoot?.Invoke();
-            Instantiate(_heavyBulletPrefab, transform.position, transform.rotation);
+            var bullet = Instantiate(_heavyBulletPrefab, transform.position, transform.rotation);
             _isCd = true;
             yield return new WaitForSeconds(_cooldawnTime);
             _isCd = false;

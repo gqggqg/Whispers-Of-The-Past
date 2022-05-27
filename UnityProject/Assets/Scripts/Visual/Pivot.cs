@@ -11,6 +11,8 @@ public class Pivot : MonoBehaviour
     private bool _facingRight;
     private float eps = 0.1f;
 
+    public bool FacingRight => _facingRight;
+
     private void FixedUpdate() {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         difference.z = 0;
