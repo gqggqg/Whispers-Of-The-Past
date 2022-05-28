@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 222272301489225634}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1293307647
 Camera:
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4062754433844631525}
   - component: {fileID: 222272301489225637}
   - component: {fileID: 222272301489225639}
-  - component: {fileID: 500075902987507103}
+  - component: {fileID: 7744275008086550482}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -114,11 +114,11 @@ Transform:
   m_GameObject: {fileID: 222272301489225631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
-  - {fileID: 7110579303913501405}
-  - {fileID: 5074719028604508147}
   - {fileID: 1293307648}
+  - {fileID: 5074719028604508147}
+  - {fileID: 7110579303913501405}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,10 +205,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.14, y: 0.53}
+  m_Offset: {x: 0, y: 0.0063181464}
+  m_Size: {x: 0.14, y: 0.5173631}
   m_Direction: 0
---- !u!61 &500075902987507103
+--- !u!61 &7744275008086550482
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000074505806, y: -0.2154538}
+  m_Offset: {x: -0.00013695657, y: -0.24549046}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -232,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13818464, y: 0.10264599}
+  m_Size: {x: 0.13970745, y: 0.038972244}
   m_EdgeRadius: 0
 --- !u!1 &222272302095404513
 GameObject:
@@ -288,7 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7110579303913501405}
   m_Layer: 0
-  m_Name: PlayerGroup
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ Transform:
   - {fileID: 3001005626577844091}
   - {fileID: 222272302095404514}
   m_Father: {fileID: 222272301489225634}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2800670059664691699
 GameObject:
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 5786391178263400921}
   - component: {fileID: 2739605280528228648}
   m_Layer: 0
-  m_Name: BodyAnimation
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,8 +379,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -91399267
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -79591666418822856, guid: 9eec32c6f19411641a6448a1c379fe67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
