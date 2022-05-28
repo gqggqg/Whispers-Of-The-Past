@@ -14,42 +14,50 @@ namespace Game {
         [SerializeField]
         protected Collider2D _collider;
 
-        public event Action OnEnemyDeath;
-        public event Action OnEnemySpawn;
-        public event Action<int> OnEnemyAttack;
+        [SerializeField]
+        private Unit _unit;
 
-        
-        protected void InvokeAttackAnimation(int attackType) {
-            OnEnemyAttack?.Invoke(attackType);
+        public event Action<bool> OnEnemySetMovingState;
+        public event Action<Action> OnEnemyDeath;
+        public event Action OnEnemyDestroy;
+        public event Action<bool, Action<bool>, bool> OnEnemySpawn;
+        public event Action<int, Action<bool>, bool> OnEnemyAttack;
+
+        public void SetMovingState(bool movingState) {
+            Debug.Log("SetState");
+            _unit.SetMovingState(movingState);
         }
 
+        protected void InvokeAttackAnimation(int attackType) {
+            OnEnemySetMovingState(false);
+            OnEnemyAttack?.Invoke(attackType, OnEnemySetMovingState, true);
+        }
+        private void OnAttack() {
+            InvokeAttackAnimation(0);
+        }
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
 
             _healthBar.SetHealth(_currentHealth);
             if (_currentHealth <= 0) {
-                OnEnemyDeath?.Invoke();
-                Debug.Log("died");
-                _weapon.enabled = false;
-                _collider.enabled = false;
-                StartCoroutine(DoDestroyInTime(5f));
+                OnEnemyDeath?.Invoke(OnEnemyDestroy);
             }
         }
-        protected IEnumerator DoDestroyInTime(float time) {
-            _healthBar.gameObject.SetActive(false);
-            yield return new WaitForSeconds(time);
-            Death();
-        }
 
-        protected void Death() {
+        private void Destroy() {
             Destroy(gameObject);
         }
 
         protected override void Start() {
             base.Start();
             _healthBar.SetMaxHealth(MaxHealth);
+            if (_weapon != null) {
+                _weapon.OnAttack += OnAttack;
+            }
+            OnEnemySetMovingState += SetMovingState;
+            OnEnemyDestroy += Destroy;
 
-            OnEnemySpawn?.Invoke();
+            OnEnemySpawn?.Invoke(true, OnEnemySetMovingState, true);
         }     
     }
 }

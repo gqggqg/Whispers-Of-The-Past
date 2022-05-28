@@ -16,11 +16,7 @@ namespace Game {
 
 
         void Start() {
-            Vector3 dir = Input.mousePosition;
-            dir = Camera.main.ScreenToWorldPoint(dir);
-            dir = dir - transform.position;
-            dir.z = 0.0f;
-            dir.Normalize();
+            Vector3 dir = transform.up;
             _startPosition = transform.position;
             rb.velocity = dir * speed;
         }
@@ -28,7 +24,7 @@ namespace Game {
         private void OnTriggerEnter2D(Collider2D hitInfo) {
 
             Enemy target = hitInfo.GetComponent<Enemy>();
-
+            if (target != null) Debug.Log(target.name);
             if (target == null) {
                 return;
             }

@@ -36,7 +36,7 @@ namespace Game {
                 Vector3 curPosition = transform.position;
                 _ammoArray[0] = Instantiate(_ammoImage, curPosition, transform.rotation, transform);
                 for (int i = 1; i < _playerWeapon.MaxAmmo; i++) {
-                    curPosition.x = transform.position.x - _ammoGap * i;
+                    curPosition.x = transform.position.x - _ammoGap * i * transform.localScale.x;
                     _ammoArray[i] = Instantiate(_ammoImage, curPosition, transform.rotation, transform);
                 }
 

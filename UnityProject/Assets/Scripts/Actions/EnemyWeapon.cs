@@ -7,8 +7,6 @@ namespace Game {
         [SerializeField]
         protected Enemy _wielder;
 
-
-
         [SerializeField]
         protected float _attackDelay;
 
