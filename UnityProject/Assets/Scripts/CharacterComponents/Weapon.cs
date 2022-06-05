@@ -36,7 +36,7 @@ namespace Game {
         public int MaxAmmo => _maxAmmo;
 
 
-        //public event Action OnShoot;
+        public event Action OnShoot;
 
         void Start() {
             _curAmmo = _maxAmmo;
@@ -48,10 +48,6 @@ namespace Game {
                 }
             }
         }
-        public void Reload() {
-            StartCoroutine(DoReload());
-            _curAmmo = -1;
-        }
 
         IEnumerator Shoot() {
             _curAmmo--;
@@ -60,6 +56,11 @@ namespace Game {
             _isCd = true;
             yield return new WaitForSeconds(_cooldawnTime);
             _isCd = false;
+        }
+
+        public void Reload() {
+            StartCoroutine(DoReload());
+            _curAmmo = -1;
         }
 
         IEnumerator DoReload() {
