@@ -40,6 +40,8 @@ namespace Game {
             if (Input.GetKey(_reloadWeaponKey)) {
                 _weapon.Reload();
             }
+            Vector2 direction = new Vector2(Input.GetAxisRaw(HORIZONTAL_AXIS_NAME), Input.GetAxisRaw(VERTICAL_AXIS_NAME));
+            _movement.MoveToDirection(direction);
 
             OnMove?.Invoke();
             
@@ -59,16 +61,15 @@ namespace Game {
             base.Start();
             _movement.BaseSpeed = BaseSpeed;
             _healthBar.SetMaxHealth(MaxHealth);
-            OnMove += DoMove;
         }
 
-        public void DoMove() {
-            Vector2 direction = new Vector2(Input.GetAxisRaw(HORIZONTAL_AXIS_NAME), Input.GetAxisRaw(VERTICAL_AXIS_NAME));
-            _movement.MoveToDirection(direction);
-        }
+
         public void TakeDamage(int damage) {
             _currentHealth -= damage;
             _healthBar.SetHealth(_currentHealth);
+            if (_currentHealth <= 0) {
+                Destroy(gameObject);
+            }
         }
     }
 }

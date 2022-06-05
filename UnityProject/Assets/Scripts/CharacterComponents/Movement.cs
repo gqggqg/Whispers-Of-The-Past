@@ -4,8 +4,7 @@ using System.Collections;
 namespace Game {
 
     public class Movement : MonoBehaviour {
-        private Vector2 _direction;
-        public Vector2 Direction => _direction;
+       
 
         private float _curSpeed;
         private float _baseSpeed;
@@ -15,18 +14,15 @@ namespace Game {
                 _baseSpeed = value;
             }
         }
-
         public float CurSpeed => _curSpeed;
-
-        
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
 
+        private Vector2 _direction;
 
         public void ManualStopMove() {
             _curSpeed = 0f;
         }
-
         public void MoveToDirection(Vector2 direction) {
             _direction = direction;
             _direction.Normalize();

@@ -30,9 +30,9 @@ namespace Game {
 			Node startNode = _grid.NodeFromWorldPoint(from);
 			Node targetNode = _grid.NodeFromWorldPoint(to);
 			startNode.parent = startNode;
+			//startNode.walkable
 
-
-			if (startNode.walkable && targetNode.walkable) {
+			if (targetNode.walkable) {
 				Heap<Node> openSet = new Heap<Node>(_grid.MaxSize);
 				HashSet<Node> closedSet = new HashSet<Node>();
 				openSet.Add(startNode);
@@ -67,9 +67,13 @@ namespace Game {
 					}
 				}
 			}
-
 			if (pathSuccess) {
 				waypoints = RetracePath(startNode, targetNode);
+				UnityEngine.Debug.Log("findPathSuccess!");
+			}
+            else {
+				waypoints = null;
+				UnityEngine.Debug.Log("findPathFail");
 			}
 
 			return waypoints;
@@ -89,6 +93,15 @@ namespace Game {
 				return 10;
 			}
 		}
+		int GetDistance(Node nodeA, Node nodeB) {
+			int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
+			int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
+
+			if (dstX > dstY)
+				return 14 * dstY + 10 * (dstX - dstY);
+			return 14 * dstX + 10 * (dstY - dstX);
+		}
+
 
 		Vector2[] RetracePath(Node startNode, Node endNode) {
 			List<Node> path = new List<Node>();
@@ -118,14 +131,6 @@ namespace Game {
 			return waypoints.ToArray();
 		}
 
-		int GetDistance(Node nodeA, Node nodeB) {
-			int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
-			int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
-
-			if (dstX > dstY)
-				return 14 * dstY + 10 * (dstX - dstY);
-			return 14 * dstX + 10 * (dstY - dstX);
-		}
 
 
 	}

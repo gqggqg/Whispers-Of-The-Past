@@ -24,7 +24,7 @@ namespace Game {
         public event Action<int, Action<bool>, bool> OnEnemyAttack;
 
         public void SetMovingState(bool movingState) {
-            Debug.Log("SetState");
+            Debug.Log("SetState" + movingState);
             _unit.SetMovingState(movingState);
         }
 
