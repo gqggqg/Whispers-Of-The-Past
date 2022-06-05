@@ -81,9 +81,10 @@ namespace Game {
 			if (grid != null && displayGridGizmos) {
 				foreach (Node n in grid) {
 					Gizmos.color = Color.red;
-					if (n.walkable)
-						Gizmos.color = Color.white;
-
+					if (n.walkable) {
+						//Gizmos.color = Color.white;
+						continue;
+					}
 					Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
 				}
 			}

@@ -12,6 +12,12 @@ namespace Game {
 		public int gCost;
 		public int hCost;
 		public Node parent;
+		public int fCost {
+			get {
+				return gCost + hCost;
+			}
+		}
+
 		int heapIndex;
 
 		public Node(bool _walkable, Vector2 _worldPos, int _gridX, int _gridY) {
@@ -21,12 +27,7 @@ namespace Game {
 			gridY = _gridY;
 		}
 
-		public int fCost {
-			get {
-				return gCost + hCost;
-			}
-		}
-
+		
 		public int HeapIndex {
 			get {
 				return heapIndex;
