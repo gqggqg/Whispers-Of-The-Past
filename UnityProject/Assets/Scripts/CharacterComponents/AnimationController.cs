@@ -1,56 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Game {
 
     public class AnimationController : MonoBehaviour {
 
-        [SerializeField]
-        private Animator _animator;
+        public Animator _animator;
 
         [SerializeField]
         private Transform _transform;
 
         [SerializeField]
-        private Movement _movement;
+        private Enemy _enemy;
 
         [SerializeField]
-        private Weapon _weapon;
-
-
-        private bool _facingRight;
+        private Player _player;
 
 
         private void Start() {
-            if (_movement != null) {
-                _movement.OnMove += OnMove;
+
+
+            if (_player != null) {
+                _player.OnMove += OnMove;
+                _player.Weapon.OnShoot += OnShoot;
             }
 
-            if (_weapon != null) {
-                _weapon.OnShoot += OnShoot;
+            if (_enemy != null) {
+                _enemy.OnEnemyDeath += OnEnemyDeath;
+                _enemy.OnEnemySpawn += OnEnemySpawn;
+                _enemy.OnEnemyAttack += OnEnemyAttack;
             }
         }
 
         private void OnShoot() {
-            var dir = Input.mousePosition;
-            dir = Camera.main.ScreenToWorldPoint(dir);
-            dir = dir - transform.position;
-            FlipToDirection(dir);
+            _player.Weapon._animator.Play(0);
         }
+        private void OnEnemyAttack(int attackType, Action<bool> callback = null, bool callbackParameter = false) {
+            _animator.SetBool("isPunch", true);
+            StartCoroutine(PlayClipThenTransition("isPunch", false, callback, callbackParameter));
+
+        }
+        private void OnEnemySpawn(bool parameter, Action<bool> callback, bool callbackParameter) {
+            StartCoroutine(PlayClipThenTransition("isSpawn", true, callback, callbackParameter));
+        }
+        private void OnEnemyDeath(Action callback) {
+            _animator.SetBool("isDead", true);
+            StartCoroutine(PlayClip(callback));
+        }
+
+        IEnumerator PlayClipThenTransition(string transitionParameter, bool transitionParameterValue, Action<bool> callback = null, bool callbackParameter = false) {
+            yield return StartCoroutine(PlayClip());
+            _animator.SetBool(transitionParameter, transitionParameterValue);
+            if (callback != null) {
+                callback?.Invoke(callbackParameter);
+            }
+            
+        }
+        IEnumerator PlayClip(Action callback = null) {
+            var clipLength = _animator.GetCurrentAnimatorStateInfo(0).length;
+            yield return new WaitForSeconds(clipLength);
+            if (callback != null) {
+                callback?.Invoke();
+            }
+        }
+
 
         private void OnMove() {
-            FlipToDirection(_movement.Direction);
-            _animator.SetFloat("Speed", _movement.Speed);
-        }
-   
-        private void FlipToDirection(Vector2 direction) {
-            if (direction.x < 0 && !_facingRight || 
-                direction.x > 0 && _facingRight ||     
-                direction.x == 0) {
-                return;
-            }
-
-            _facingRight = !_facingRight;
-            _transform.Rotate(0f, 180f, 0f);
+            _animator.SetFloat("Speed", _player.Movement.CurSpeed);
         }
     }
 }

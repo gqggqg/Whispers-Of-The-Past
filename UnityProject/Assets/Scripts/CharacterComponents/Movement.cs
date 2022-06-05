@@ -1,48 +1,40 @@
 using UnityEngine;
-using System;
+using System.Collections;
 
 namespace Game {
 
     public class Movement : MonoBehaviour {
+        private Vector2 _direction;
+        public Vector2 Direction => _direction;
 
-        [SerializeField]
-        private Rigidbody2D _rigidbody;
+        private float _curSpeed;
+        private float _baseSpeed;
+        public float BaseSpeed {
+            get => _baseSpeed;
+            set {
+                _baseSpeed = value;
+            }
+        }
 
-        [SerializeField]
-        private int _baseSpeed;
+        public float CurSpeed => _curSpeed;
 
+        
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
 
 
-        private Vector2 _direction;
-        public Vector2 Direction => _direction;
+        public void ManualStopMove() {
+            _curSpeed = 0f;
+        }
 
-        private float _speed;
-        public float Speed => _speed;
-
-
-        public event Action OnMove;
-
-
-        private void Update() {
-            var horizontal = Input.GetAxisRaw(HORIZONTAL_AXIS_NAME);
-            var vertical = Input.GetAxisRaw(VERTICAL_AXIS_NAME);
-
-            if (_direction.x == horizontal && _direction.y == vertical) {
-                return;
-            }
-
-            _direction.Set(horizontal, vertical);
+        public void MoveToDirection(Vector2 direction) {
+            _direction = direction;
             _direction.Normalize();
-            _speed = _direction.magnitude * _baseSpeed;
-
-            OnMove?.Invoke();
+            _curSpeed = _direction.magnitude * _baseSpeed;
         }
-
         private void FixedUpdate() {
-            var position = _rigidbody.position + (_direction * _speed * Time.deltaTime);
-            _rigidbody.MovePosition(position);      
+            transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + _direction, _curSpeed * Time.deltaTime);
         }
+
     }
 }
