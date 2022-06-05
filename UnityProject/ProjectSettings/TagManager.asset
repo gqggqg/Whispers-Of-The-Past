@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -40,6 +41,21 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1591034383
+    locked: 0
+  - name: Trees
+    uniqueID: 3325925317
+    locked: 0
+  - name: Buils
+    uniqueID: 690135611
+    locked: 0
+  - name: Bushes
+    uniqueID: 2259173163
+    locked: 0
+  - name: Other
+    uniqueID: 3875473825
     locked: 0
   - name: Characters
     uniqueID: 4203568029

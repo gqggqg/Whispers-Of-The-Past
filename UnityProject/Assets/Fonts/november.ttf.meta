@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5bb5e28bd19c951479d4fc0226a1d8b1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - November
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1dfb61ee71bed934f8311c8905dc96df, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
